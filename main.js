@@ -359,10 +359,10 @@ function buildPackagingModels() {
 
   outerSleeve = new THREE.Group();
 
-  // Load Photorealistic Textures
-  const topFaceTex = loadRealisticTexture('tex_box_front.jpg', createTopFaceTexture, Math.PI);
+  // Load Photorealistic Textures (Orientation 0: Exact Right-Side Up)
+  const topFaceTex = loadRealisticTexture('tex_box_front.jpg', createTopFaceTexture, 0);
   const bottomFaceTex = loadRealisticTexture('tex_box_back.jpg', createTopFaceTexture, 0);
-  const sideFaceTex = loadRealisticTexture('tex_box_side.jpg', createTopFaceTexture, Math.PI / 2);
+  const sideFaceTex = loadRealisticTexture('tex_box_side.jpg', createTopFaceTexture, 0);
 
   // Luxury Satin Coated Paperboard Materials
   const luxuryLilacMat = new THREE.MeshStandardMaterial({
@@ -525,7 +525,7 @@ function buildPackagingModels() {
   innerDrawer.add(ribbonMesh);
 
   // 3 Stacked Pre-Soaked Mask Sachets inside the 130 × 170 mm Cavity
-  const sachetTex = loadRealisticTexture('tex_sachet_front.jpg', createSachetTexture, Math.PI);
+  const sachetTex = loadRealisticTexture('tex_sachet_front.jpg', createSachetTexture, 0);
 
   // Photorealistic Metallic Gold Foil Material
   const sachetMat = new THREE.MeshStandardMaterial({
@@ -567,7 +567,7 @@ function buildPackagingModels() {
 }
 
 function buildIsolatedProducts() {
-  const sachetTex = loadRealisticTexture('tex_sachet_front.jpg', createSachetTexture, Math.PI);
+  const sachetTex = loadRealisticTexture('tex_sachet_front.jpg', createSachetTexture, 0);
   const sMat = new THREE.MeshStandardMaterial({
     map: sachetTex,
     roughness: 0.20,

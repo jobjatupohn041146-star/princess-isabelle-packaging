@@ -198,18 +198,18 @@
       <!-- Item 3 -->
       <g transform="translate(690, 0)">
         <rect width="320" height="105" rx="8" fill="#FAF5FC" stroke="#D7BDE2" stroke-width="1"/>
-        <text font-family="'Segoe UI', sans-serif" font-size="13px" font-weight="bold" fill="#4A235A" x="16" y="26">3. ซองนอก 12×16 cm (.SVG)</text>
-        <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#777" x="16" y="46">ขนาด: 120 × 160 mm (หน้า-หลัง)</text>
-        <text font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#B8860B" x="16" y="66">✓ บรรจุแผ่นมาส์กแห้ง + ซองเซรั่มใน 30ml</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="13px" font-weight="bold" fill="#4A235A" x="16" y="26">3. ซองมาส์กชุ่มเซรั่ม 12×16 cm (.SVG)</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#777" x="16" y="46">ขนาด: 120 × 160 mm (All-in-One)</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#B8860B" x="16" y="66">✓ แผ่นมาส์กไหมชุ่มเซรั่มสด 30ml ในซองเดียว</text>
         <text font-family="'Segoe UI', sans-serif" font-size="9.5px" fill="#888" x="16" y="86">Dieline_Princess_Isabelle_Outer_Sachet_12x16.svg</text>
       </g>
 
       <!-- Item 4 -->
       <g transform="translate(1035, 0)">
         <rect width="320" height="105" rx="8" fill="#FAF5FC" stroke="#D7BDE2" stroke-width="1"/>
-        <text font-family="'Segoe UI', sans-serif" font-size="13px" font-weight="bold" fill="#4A235A" x="16" y="26">4. ซองเซรั่มใน 9×12 cm (.SVG)</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="13px" font-weight="bold" fill="#4A235A" x="16" y="26">4. [ทางเลือก] ซองเซรั่มแยก 9×12 cm</text>
         <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#777" x="16" y="46">ขนาด: 90 × 120 mm (ความจุ 30 ml)</text>
-        <text font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#B8860B" x="16" y="66">✓ ฟอยล์อลูมิเนียมกั้นอากาศ • มุมฉีกเท 45°</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#B8860B" x="16" y="66">✓ ออปชันเสริมสำหรับกรณีผลิตแยกซองคู่</text>
         <text font-family="'Segoe UI', sans-serif" font-size="9.5px" fill="#888" x="16" y="86">Dieline_Princess_Isabelle_Inner_Serum_Sachet_9x12.svg</text>
       </g>
     </g>
