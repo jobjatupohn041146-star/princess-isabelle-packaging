@@ -1,150 +1,171 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 850" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 900" width="100%" height="100%">
   <defs>
     <style>
       .cut-line { stroke: #E60039; stroke-width: 2; fill: none; }
       .crease-line { stroke: #0088FF; stroke-width: 1.5; stroke-dasharray: 6,4; fill: none; }
       .bleed-line { stroke: #9900FF; stroke-width: 1; stroke-dasharray: 4,4; fill: none; }
-      .ribbon-slot { stroke: #FF9900; stroke-width: 3; stroke-linecap: round; }
-      .dim-line { stroke: #555555; stroke-width: 1; marker-start: url(#arr2); marker-end: url(#arr2); }
+      .ribbon-slot { stroke: #FF9900; stroke-width: 3.5; stroke-linecap: round; }
+      .dim-line { stroke: #555555; stroke-width: 1; marker-start: url(#arr-d); marker-end: url(#arr-d); }
       .dim-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #222222; font-weight: bold; text-anchor: middle; }
       .label-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; fill: #4B286D; font-weight: bold; }
       .label-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #666666; }
       .panel-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #7B4B94; font-weight: bold; text-anchor: middle; }
+      .hollow-fill { fill: #F4E8F8; opacity: 0.6; }
     </style>
-    <marker id="arr2" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="arr-d" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/>
     </marker>
-    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="goldDieline" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ECC86C"/>
       <stop offset="50%" stop-color="#FFDE8A"/>
       <stop offset="100%" stop-color="#B8860B"/>
     </linearGradient>
-    <linearGradient id="trayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#FAF5FC"/>
-      <stop offset="100%" stop-color="#EFE6F5"/>
+    <linearGradient id="trayBgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCF9FE"/>
+      <stop offset="100%" stop-color="#F1E4F6"/>
     </linearGradient>
   </defs>
 
-  <!-- Background -->
+  <!-- Background Canvas -->
   <rect width="100%" height="100%" fill="#FCFBFF"/>
-  <rect x="25" y="25" width="1050" height="800" rx="12" fill="#FFFFFF" stroke="#E5D9F2" stroke-width="1.5"/>
+  <rect x="25" y="25" width="1100" height="850" rx="14" fill="#FFFFFF" stroke="#E5D9F2" stroke-width="1.5"/>
 
-  <!-- Title Block & Header -->
+  <!-- Header Title Block -->
   <g transform="translate(60, 65)">
-    <text class="label-title" x="0" y="0">PRINCESS ISABELLE — RIGID SLIDE DRAWER TRAY DIELINE</text>
-    <text class="label-sub" x="0" y="20">Internal Cavity: 126 mm (W) × 168 mm (L) × 38 mm (D) • Finished External: 127.5 × 169.5 × 39.5 mm</text>
-    <text class="label-sub" x="0" y="36">Material: 157 gsm C2S Art Paper Wrap mounted over 2.0 mm Greyboard • Features 16 mm Slot for Champagne Gold Satin Ribbon Pull Tab</text>
+    <text class="label-title" x="0" y="0">PRINCESS ISABELLE — HOLLOW-WALL INNER DRAWER TRAY (กล่องในมีขอบพับเบิ้ล 10 มม.)</text>
+    <text class="label-sub" x="0" y="20">Short-Side Slide Box (CEILK Style) • Inner Cavity: 130 × 170 mm • Net Depth: 33 mm (&gt; 3 cm)</text>
+    <text class="label-sub" x="0" y="36">Finished Outer Tray: 150 × 190 × 34 mm • 10 mm Reinforced Double-Wall Hollow Rim • 15 mm Champagne Gold Ribbon on Short Edge</text>
   </g>
 
   <!-- Legend -->
-  <g transform="translate(750, 50)">
-    <rect width="270" height="95" rx="8" fill="#F8F6FC" stroke="#D1C4E9" stroke-width="1"/>
+  <g transform="translate(800, 50)">
+    <rect width="280" height="105" rx="8" fill="#F8F6FC" stroke="#D1C4E9" stroke-width="1"/>
     <text x="15" y="18" font-family="'Segoe UI', sans-serif" font-size="11px" font-weight="bold" fill="#333">CAD SPECIFICATION LEGEND</text>
-    
     <line x1="15" y1="34" x2="45" y2="34" class="cut-line"/>
     <text x="55" y="37" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Die Cut Line (ใบมีดตัด)</text>
-    
-    <line x1="15" y1="50" x2="45" y2="50" class="crease-line"/>
-    <text x="55" y="53" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Score / Fold Line (รอยพับขอบถาด)</text>
-    
-    <line x1="15" y1="66" x2="45" y2="66" class="bleed-line"/>
-    <text x="55" y="69" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">15 mm Wrap-Around Flap (พับขอบใน)</text>
-
-    <line x1="15" y1="82" x2="45" y2="82" class="ribbon-slot"/>
-    <text x="55" y="85" font-family="'Segoe UI', sans-serif" font-size="10px" font-weight="bold" fill="#E65100">16 mm Satin Ribbon Slot (ช่องร้อยริบบิ้น)</text>
+    <line x1="15" y1="52" x2="45" y2="52" class="crease-line"/>
+    <text x="55" y="55" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Score / Fold Crease (รอยพับขอบ)</text>
+    <rect x="15" y="66" width="30" height="10" fill="#F4E8F8" stroke="#9900FF" stroke-width="1"/>
+    <text x="55" y="74" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">10 mm Hollow Rim (ขอบพับเบิ้ลหนา 10 มม.)</text>
+    <line x1="15" y1="92" x2="45" y2="92" class="ribbon-slot"/>
+    <text x="55" y="95" font-family="'Segoe UI', sans-serif" font-size="10px" font-weight="bold" fill="#E65100">16 mm Gold Ribbon Slot (ช่องริบบิ้นด้านสั้น)</text>
   </g>
 
-  <!-- Dieline Drawing of Cross / 5-Panel Drawer Tray -->
+  <!-- Dieline Drawing Group (Hollow Wall Tray) -->
   <!-- 
-    Base Panel: 126 mm (W) × 168 mm (L)
-    Sidewall Height: 38 mm
-    Wrap Flaps: 15 mm
-    Center base located around (480, 420)
-    Scale: 1 mm ~ 1.5 px
-    Base w = 126 * 1.5 = 189 px
-    Base h = 168 * 1.5 = 252 px
-    Wall height = 38 * 1.5 = 57 px
-    Wrap flap = 15 * 1.5 = 22.5 px
+    Base Panel: 130 mm (W) × 170 mm (L) -> Scale 1 mm ~ 1.6 px
+    Base width = 130 * 1.6 = 208 px
+    Base length = 170 * 1.6 = 272 px
+    Outer wall = 34 * 1.6 = 54.4 px
+    Hollow rim = 10 * 1.6 = 16 px
+    Inner wall = 33 * 1.6 = 52.8 px
+    Glue flap = 10 * 1.6 = 16 px
   -->
-  <g transform="translate(180, 180)">
-    <!-- Bleed Boundary -->
-    <rect x="100" y="30" width="370" height="430" class="bleed-line"/>
+  <g transform="translate(320, 200)">
+    <!-- Base Tray Fill -->
+    <!-- Base Center: x=0 to 208, y=0 to 272 -->
+    <rect x="0" y="0" width="208" height="272" fill="url(#trayBgGrad)" class="crease-line"/>
 
-    <!-- Outer Die Cut Path of Flattened Wrap Paper -->
-    <path d="
-      M 160,50 L 380,50 L 380,107 L 437,107 L 437,130 L 460,130 L 460,382 L 437,382 L 437,405 L 380,405 L 380,462 L 160,462 L 160,405 L 103,405 L 103,382 L 80,382 L 80,130 L 103,130 L 103,107 L 160,107 Z
-    " class="cut-line" fill="url(#trayGrad)" fill-opacity="0.5"/>
+    <!-- 10 mm Hollow Rim Indicative Inner Frame -->
+    <rect x="16" y="16" width="176" height="240" fill="none" stroke="#D4AF37" stroke-width="1" stroke-dasharray="3,3"/>
 
-    <!-- Crease lines defining the Base Box (189 px x 252 px) -->
-    <!-- Base Rect coordinates: x=170 to 359 (w=189), y=127 to 379 (h=252) -->
-    <rect x="170" y="127" width="189" height="252" class="crease-line"/>
+    <!-- TOP WALL STRUCTURE (SHORT SIDE - PULL SIDE) -->
+    <!-- Outer wall (h=54.4), Rim (h=16), Inner wall (h=52.8), Glue flap (h=16) -->
+    <!-- Fold lines: y=-54.4, y=-70.4, y=-123.2, y=-139.2 -->
+    <line x1="0" y1="0" x2="208" y2="0" class="crease-line"/>
+    <line x1="0" y1="-54.4" x2="208" y2="-54.4" class="crease-line"/>
+    <rect x="0" y="-70.4" width="208" height="16" fill="#F4E8F8" stroke="#0088FF" class="crease-line"/>
+    <line x1="0" y1="-123.2" x2="208" y2="-123.2" class="crease-line"/>
+    <polygon points="
+      0,0 0,-139.2 208,-139.2 208,0
+    " class="cut-line"/>
 
-    <!-- Inner fold lines for 15mm turn-in flaps -->
-    <line x1="170" y1="70" x2="359" y2="70" class="crease-line"/>
-    <line x1="170" y1="436" x2="359" y2="436" class="crease-line"/>
-    <line x1="103" y1="127" x2="103" y2="379" class="crease-line"/>
-    <line x1="426" y1="127" x2="426" y2="379" class="crease-line"/>
+    <!-- Ribbon Slot on Top Short Edge (y = -27 px, centered at x=104 px) -->
+    <line x1="91" y1="-27" x2="117" y2="-27" class="ribbon-slot"/>
+    <text font-family="'Segoe UI', sans-serif" font-size="9px" font-weight="bold" fill="#E65100" text-anchor="middle" x="104" y="-34">16 mm RIBBON SLIT (ช่องร้อยริบบิ้นด้านสั้น)</text>
 
-    <!-- Corner V-groove 45-degree fold markers -->
-    <line x1="170" y1="127" x2="103" y2="107" stroke="#9900FF" stroke-width="1" stroke-dasharray="2,2"/>
-    <line x1="359" y1="127" x2="426" y2="107" stroke="#9900FF" stroke-width="1" stroke-dasharray="2,2"/>
-    <line x1="170" y1="379" x2="103" y2="405" stroke="#9900FF" stroke-width="1" stroke-dasharray="2,2"/>
-    <line x1="359" y1="379" x2="426" y2="405" stroke="#9900FF" stroke-width="1" stroke-dasharray="2,2"/>
-
-    <!-- Base Tray Content Label -->
-    <g transform="translate(264, 240)">
-      <text class="panel-label" x="0" y="-30">INNER BASE CAVITY</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#333" text-anchor="middle" x="0" y="-12">126 mm (W) × 168 mm (L)</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="10px" fill="#666" text-anchor="middle" x="0" y="6">Engineered for 3 Stacked Fresh-Mix Sachets</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="10px" fill="#7B4B94" text-anchor="middle" x="0" y="22">(120 × 160 mm Outer Sachets with 30ml Bulge)</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="9px" fill="#888" text-anchor="middle" x="0" y="38">Depth: 38 mm (+2 mm Free-Glide Clearance)</text>
+    <!-- Ribbon Pull Tab Illustration (Sticking out from short edge) -->
+    <g transform="translate(104, -54.4)">
+      <path d="M -12,0 L -12,-35 C -12,-45 12,-45 12,-35 L 12,0 Z" fill="url(#goldDieline)" stroke="#B8860B" stroke-width="1.2"/>
+      <text font-family="'Segoe UI', sans-serif" font-size="8px" font-weight="bold" fill="#4A235A" text-anchor="middle" x="0" y="-18">PULL</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="8.5px" font-weight="bold" fill="#E65100" text-anchor="middle" x="0" y="-50">ริบบิ้นซาตินทอง 15 มม.</text>
     </g>
 
-    <!-- Sidewall Panels Labels -->
-    <text class="panel-label" x="264" y="100" font-size="11px">TOP WALL (38 mm)</text>
-    <text class="panel-label" x="264" y="415" font-size="11px">BOTTOM WALL (38 mm)</text>
-    
-    <g transform="translate(135, 253) rotate(-90)">
-      <text class="panel-label" x="0" y="0" font-size="11px">LEFT WALL (38 mm)</text>
-    </g>
+    <!-- BOTTOM WALL STRUCTURE (SHORT SIDE) -->
+    <line x1="0" y1="272" x2="208" y2="272" class="crease-line"/>
+    <line x1="0" y1="326.4" x2="208" y2="326.4" class="crease-line"/>
+    <rect x="0" y="326.4" width="208" height="16" fill="#F4E8F8" stroke="#0088FF" class="crease-line"/>
+    <line x1="0" y1="395.2" x2="208" y2="395.2" class="crease-line"/>
+    <polygon points="
+      0,272 0,411.2 208,411.2 208,272
+    " class="cut-line"/>
 
-    <!-- RIGHT WALL with Ribbon Slot -->
-    <g transform="translate(393, 253) rotate(90)">
-      <text class="panel-label" x="0" y="-6" font-size="11px">RIGHT WALL (PULL SIDE)</text>
-      <!-- The Ribbon Slot -->
-      <line x1="-20" y1="6" x2="20" y2="6" class="ribbon-slot"/>
-      <text font-family="'Segoe UI', sans-serif" font-size="8px" font-weight="bold" fill="#E65100" text-anchor="middle" x="0" y="18">16 mm RIBBON DIE-CUT SLIT</text>
-    </g>
+    <!-- LEFT WALL STRUCTURE (LONG SIDE - 170 mm) -->
+    <!-- Widths: 54.4 (outer), 16 (rim), 52.8 (inner), 16 (flap) -->
+    <line x1="0" y1="0" x2="0" y2="272" class="crease-line"/>
+    <line x1="-54.4" y1="0" x2="-54.4" y2="272" class="crease-line"/>
+    <rect x="-70.4" y="0" width="16" height="272" fill="#F4E8F8" stroke="#0088FF" class="crease-line"/>
+    <line x1="-123.2" y1="0" x2="-123.2" y2="272" class="crease-line"/>
+    <polygon points="
+      0,0 -139.2,0 -139.2,272 0,272
+    " class="cut-line"/>
 
-    <!-- Ribbon Pull Illustration Tab -->
-    <g transform="translate(437, 253)">
-      <path d="M 0,-12 L 40,-12 C 48,-12 48,12 40,12 L 0,12 Z" fill="url(#goldGrad2)" stroke="#B8860B" stroke-width="1"/>
-      <text font-family="'Segoe UI', sans-serif" font-size="8px" font-weight="bold" fill="#4B286D" text-anchor="middle" x="20" y="3">PULL</text>
-      <line x1="40" y1="20" x2="70" y2="20" stroke="#E65100" stroke-width="1"/>
-      <text font-family="'Segoe UI', sans-serif" font-size="9px" font-weight="bold" fill="#E65100" x="75" y="24">15 mm Champagne Gold Satin Ribbon (ความยาวห่วง 35 mm)</text>
+    <!-- RIGHT WALL STRUCTURE (LONG SIDE - 170 mm) -->
+    <line x1="208" y1="0" x2="208" y2="272" class="crease-line"/>
+    <line x1="262.4" y1="0" x2="262.4" y2="272" class="crease-line"/>
+    <rect x="262.4" y="0" width="16" height="272" fill="#F4E8F8" stroke="#0088FF" class="crease-line"/>
+    <line x1="331.2" y1="0" x2="331.2" y2="272" class="crease-line"/>
+    <polygon points="
+      208,0 347.2,0 347.2,272 208,272
+    " class="cut-line"/>
+
+    <!-- Corner 45° Locking Flaps (Miter cuts for 10 mm hollow frame) -->
+    <path d="M 0,0 L -54.4,-54.4 M 208,0 L 262.4,-54.4 M 0,272 L -54.4,326.4 M 208,272 L 262.4,326.4" stroke="#9900FF" stroke-width="1.2" stroke-dasharray="3,3"/>
+
+    <!-- Center Base Text & Specifications -->
+    <g transform="translate(104, 136)">
+      <text class="panel-label" x="0" y="-45">INNER CAVITY (หลุมใส่ของด้านใน)</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="14px" font-weight="bold" fill="#333" text-anchor="middle" x="0" y="-22">130 × 170 mm</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="11px" font-weight="bold" fill="#B8860B" text-anchor="middle" x="0" y="2">ความลึกสุทธิ: 33 mm (สูงกว่า 3 ซม.)</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="10px" fill="#666" text-anchor="middle" x="0" y="20">สำหรับใส่ซอง 12×16 ซม. จำนวน 3 แผ่น</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="9.5px" fill="#7B1FA2" text-anchor="middle" x="0" y="38">(3 ซองหนารวม ~30-32 mm ไม่ล้นขอบ ไม่ติด)</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="10px" font-weight="bold" fill="#4A235A" text-anchor="middle" x="0" y="58">[ ขอบพับเบิ้ล Hollow Wall หนา 10 มม. รอบด้าน ]</text>
     </g>
 
     <!-- Dimension Callouts -->
-    <!-- Cavity Width: 126 mm -->
-    <line x1="170" y1="115" x2="359" y2="115" class="dim-line"/>
-    <text class="dim-text" x="264" y="110">126 mm (Inner Width)</text>
+    <!-- Inner Width: 130 mm -->
+    <line x1="0" y1="285" x2="208" y2="285" class="dim-line"/>
+    <text class="dim-text" x="104" y="300">130 mm (Inner Width หลุมกว้าง 13 ซม.)</text>
 
-    <!-- Cavity Length: 168 mm -->
-    <line x1="60" y1="127" x2="60" y2="379" class="dim-line"/>
-    <text class="dim-text" x="45" y="253" transform="rotate(-90 45 253)">168 mm (Inner Length)</text>
+    <!-- Total Outer Width with 10mm Borders: 150 mm -->
+    <line x1="-16" y1="-155" x2="224" y2="-155" class="dim-line"/>
+    <text class="dim-text" x="104" y="-163">150 mm (Total Width รวมขอบบ่า 10 มม. สองฝั่ง)</text>
 
-    <!-- Wall Height: 38 mm -->
-    <line x1="365" y1="70" x2="365" y2="127" class="dim-line"/>
-    <text class="dim-text" x="385" y="103">38 mm</text>
+    <!-- Inner Length: 170 mm -->
+    <line x1="-155" y1="0" x2="-155" y2="272" class="dim-line"/>
+    <text class="dim-text" x="-170" y="136" transform="rotate(-90 -170 136)">170 mm (Inner Length หลุมยาว 17 ซม.)</text>
+
+    <!-- Total Outer Length: 190 mm -->
+    <line x1="365" y1="-16" x2="365" y2="288" class="dim-line"/>
+    <text class="dim-text" x="382" y="136" transform="rotate(90 382 136)">190 mm (Total Length รวมขอบบ่า)</text>
+
+    <!-- Rim Width callout: 10 mm -->
+    <line x1="208" y1="-62.4" x2="208" y2="-46.4" class="dim-line"/>
+    <text class="dim-text" x="235" y="-51">10 mm Rim</text>
+
+    <!-- Depth callout: 33 mm -->
+    <line x1="-54.4" y1="-52.8" x2="-54.4" y2="0" class="dim-line"/>
+    <text class="dim-text" x="-75" y="-24">33 mm</text>
   </g>
 
-  <!-- Technical Notes Box -->
-  <g transform="translate(100, 670)">
-    <rect width="900" height="120" rx="8" fill="#FDFBF7" stroke="#E2D9C8" stroke-width="1"/>
-    <text x="20" y="24" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#4B286D">DRAWER TRAY PRODUCTION &amp; ASSEMBLY SPECIFICATIONS:</text>
-    <text x="20" y="46" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Construction: 2.0 mm High-Density Greyboard tray core with 90° grooved upright walls.</text>
-    <text x="20" y="64" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Inner Lining &amp; Wrap: 157 gsm Art Paper laminated with Royal Soft-Touch Matte coating, wrapping 15 mm inside bottom.</text>
-    <text x="20" y="82" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Ribbon Assembly: 15 mm high-density double-face woven satin ribbon (Pantone 10126C Champagne Gold). Threaded through 16 mm slit, secured with 25 mm industrial glue anchor tape under the inner lining sheet.</text>
-    <text x="20" y="100" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Clearance: Outer dimensions 127.5 × 169.5 × 39.5 mm leave exact 0.5 mm frictionless gap against sleeve inside walls.</text>
+  <!-- Technical Summary Notes Box at Bottom -->
+  <g transform="translate(60, 720)">
+    <rect width="1030" height="130" rx="8" fill="#FDFBF7" stroke="#E2D9C8" stroke-width="1"/>
+    <text x="20" y="22" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#4B286D">HOLLOW-WALL INNER TRAY SPECIFICATIONS (สเปกการผลิตถาดในมีขอบพับเบิ้ลหนา 10 มม.):</text>
+    <text x="20" y="42" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• โครงสร้างขอบพับเบิ้ล (Hollow-Wall Frame): พับขึ้นรูปขอบบ่า 4 ด้านหนา 10 มม. (Double Wall 10 mm) เสริมความแข็งแกร่งสูงสุด ไม่โก่ง ไม่งอ</text>
+    <text x="20" y="60" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• มิติพื้นที่บรรจุสุทธิ (Net Inner Cavity): 130 × 170 มม. ลึกสุทธิ 33 มม. (สูงกว่า 3 ซม. รองรับซอง 3 ซองหนารวม ~30-32 มม. ได้พอดีเป๊ะ)</text>
+    <text x="20" y="78" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• ขนาดรวมขอบนอกสำเร็จ (Outer Tray Finished Size): กว้าง 150 มม. × ยาว 190 มม. × สูง 34 มม.</text>
+    <text x="20" y="96" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• ตำแหน่งริบบิ้นดึง (Short-Edge Pull): เจาะช่อง Die-cut 16 มม. ที่กึ่งกลางขอบด้านสั้นบน สำหรับติดริบบิ้นซาตินสีทองแชมเปญ 15 มม. สไลด์ออกด้านสั้น</text>
+    <text x="20" y="114" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• วัสดุกระดาษ: C2S Premium Art Card 400 gsm หรือ จั่วปังเสริมบ่าหุ้มกระดาษอาร์ต 157 gsm เคลือบ Soft-Touch ลามิเนตด้านกันรอย</text>
   </g>
 </svg>

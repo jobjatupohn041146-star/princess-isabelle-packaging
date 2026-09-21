@@ -1,140 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 850" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1150 900" width="100%" height="100%">
   <defs>
     <style>
       .cut-line { stroke: #E60039; stroke-width: 2; fill: none; }
       .crease-line { stroke: #0088FF; stroke-width: 1.5; stroke-dasharray: 6,4; fill: none; }
       .bleed-line { stroke: #9900FF; stroke-width: 1; stroke-dasharray: 4,4; fill: none; }
-      .foil-zone { fill: #FFF7D6; stroke: #D4AF37; stroke-width: 1.5; opacity: 0.85; }
-      .dim-line { stroke: #555555; stroke-width: 1; marker-start: url(#arr); marker-end: url(#arr); }
+      .foil-zone { fill: #FFF9E6; stroke: #D4AF37; stroke-width: 1.5; opacity: 0.9; }
+      .dim-line { stroke: #555555; stroke-width: 1; marker-start: url(#arr-s); marker-end: url(#arr-s); }
       .dim-text { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; fill: #222222; font-weight: bold; text-anchor: middle; }
       .label-title { font-family: 'Playfair Display', Georgia, serif; font-size: 22px; fill: #4B286D; font-weight: bold; }
       .label-sub { font-family: 'Segoe UI', Arial, sans-serif; font-size: 12px; fill: #666666; }
       .panel-label { font-family: 'Segoe UI', Arial, sans-serif; font-size: 13px; fill: #7B4B94; font-weight: bold; text-anchor: middle; }
     </style>
-    <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="arr-s" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#555"/>
     </marker>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="goldSleeve" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#ECC86C"/>
       <stop offset="50%" stop-color="#FFDE8A"/>
       <stop offset="100%" stop-color="#B8860B"/>
     </linearGradient>
-    <linearGradient id="lavenderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F5EEFA"/>
-      <stop offset="100%" stop-color="#E8DBF0"/>
+    <linearGradient id="sleeveLavender" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF4FD"/>
+      <stop offset="100%" stop-color="#E9DBF0"/>
     </linearGradient>
   </defs>
 
   <!-- Background -->
   <rect width="100%" height="100%" fill="#FCFBFF"/>
-  <rect x="25" y="25" width="1050" height="800" rx="12" fill="#FFFFFF" stroke="#E5D9F2" stroke-width="1.5"/>
+  <rect x="25" y="25" width="1100" height="850" rx="14" fill="#FFFFFF" stroke="#E5D9F2" stroke-width="1.5"/>
 
   <!-- Title Block & Header -->
   <g transform="translate(60, 65)">
-    <text class="label-title" x="0" y="0">PRINCESS ISABELLE — RIGID SLIDE SLEEVE DIELINE</text>
-    <text class="label-sub" x="0" y="20">Project: Golden Silk Facial Mask (CEILK Matchbox Style) • Finished Size: 132 × 174 × 43 mm (Internal Clearance: 128 × 170 × 40 mm)</text>
-    <text class="label-sub" x="0" y="36">Material: 157 gsm C2S Art Paper Wrap mounted over 2.0 mm Premium Greyboard • Finishing: Soft-Touch Matte + Gold Foil Stamping + Micro-Embossing</text>
+    <text class="label-title" x="0" y="0">PRINCESS ISABELLE — SHORT-SIDE SLIDE SLEEVE DIELINE (ปลอกสวมสไลด์ด้านสั้น สไตล์ CEILK)</text>
+    <text class="label-sub" x="0" y="20">Finished Size: 153 mm (W) × 193 mm (L) × 37 mm (H) • Internal Clearance: 151 × 191 × 35 mm</text>
+    <text class="label-sub" x="0" y="36">Houses 150 × 190 × 34 mm Hollow-Wall Inner Tray • Material: 157 gsm Art Paper over 2.0 mm Greyboard / 400 gsm Art Card</text>
   </g>
 
   <!-- Legend -->
-  <g transform="translate(750, 50)">
-    <rect width="270" height="90" rx="8" fill="#F8F6FC" stroke="#D1C4E9" stroke-width="1"/>
-    <text x="15" y="20" font-family="'Segoe UI', sans-serif" font-size="11px" font-weight="bold" fill="#333">CAD SPECIFICATION LEGEND</text>
-    
-    <line x1="15" y1="36" x2="45" y2="36" class="cut-line"/>
-    <text x="55" y="39" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Die Cut Line (ใบมีดตัด)</text>
-    
-    <line x1="15" y1="54" x2="45" y2="54" class="crease-line"/>
-    <text x="55" y="57" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Score / Fold Line (รอยพับ)</text>
-    
-    <line x1="15" y1="72" x2="45" y2="72" class="bleed-line"/>
-    <text x="55" y="75" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Wrap / Bleed Margin (15 mm พับหุ้ม)</text>
-
-    <rect x="155" y="30" width="12" height="12" fill="url(#goldGrad)" rx="2"/>
-    <text x="175" y="39" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Gold Foil Stamping</text>
+  <g transform="translate(800, 50)">
+    <rect width="280" height="105" rx="8" fill="#F8F6FC" stroke="#D1C4E9" stroke-width="1"/>
+    <text x="15" y="18" font-family="'Segoe UI', sans-serif" font-size="11px" font-weight="bold" fill="#333">CAD SPECIFICATION LEGEND</text>
+    <line x1="15" y1="34" x2="45" y2="34" class="cut-line"/>
+    <text x="55" y="37" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Die Cut Line (ใบมีดตัด)</text>
+    <line x1="15" y1="52" x2="45" y2="52" class="crease-line"/>
+    <text x="55" y="55" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Score / Fold Crease (รอยพับ)</text>
+    <line x1="15" y1="70" x2="45" y2="70" class="bleed-line"/>
+    <text x="55" y="73" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">15 mm Wrap Margin (ขอบพับหุ้มด้านสั้น)</text>
+    <rect x="15" y="84" width="16" height="12" fill="url(#goldSleeve)" rx="2"/>
+    <text x="55" y="93" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#444">Gold Hot Foil Stamping (ปั๊มฟอยล์ทอง)</text>
   </g>
 
-  <!-- Dieline Drawing Group -->
-  <g transform="translate(100, 200)">
-    <!-- Outer Bleed Contour -->
-    <rect x="40" y="30" width="640" height="360" class="bleed-line"/>
-    
-    <!-- Cut Contour of Wrap Paper -->
+  <!-- Dieline Wrap Layout for Short-Side Open Tube -->
+  <!-- 
+    The sleeve wraps around the 4 sides along the 193 mm length:
+    Panels:
+    P1: Glue Tab: 20 mm
+    P2: Bottom Face: 153 mm
+    P3: Left Side Wall: 37 mm
+    P4: Top Face (Hero Front): 153 mm
+    P5: Right Side Wall: 37 mm
+    Length: 193 mm + 15 mm turn-ins on each open end (Top & Bottom short edges)
+    Scale: 1 mm ~ 1.5 px
+    Glue = 20 * 1.5 = 30 px
+    Face = 153 * 1.5 = 229.5 px
+    Wall = 37 * 1.5 = 55.5 px
+    Length = 193 * 1.5 = 289.5 px
+    Turn-in = 15 * 1.5 = 22.5 px
+  -->
+  <g transform="translate(100, 210)">
+    <!-- Base Paper Fill with Lavender Gradient -->
     <polygon points="
-      50,45 670,45 670,375 50,375
-    " class="cut-line" fill="url(#lavenderGrad)" fill-opacity="0.4"/>
+      50,30 680,30 680,365 50,365
+    " class="cut-line" fill="url(#sleeveLavender)" fill-opacity="0.5"/>
 
-    <!-- Fold / Crease Lines dividing panels -->
-    <line x1="90" y1="45" x2="90" y2="375" class="crease-line"/>
-    <line x1="320" y1="45" x2="320" y2="375" class="crease-line"/>
-    <line x1="392" y1="45" x2="392" y2="375" class="crease-line"/>
-    <line x1="622" y1="45" x2="622" y2="375" class="crease-line"/>
+    <!-- Crease lines dividing the 4 panels + glue tab -->
+    <!-- Glue Tab: x=50 to x=80 -->
+    <line x1="80" y1="30" x2="80" y2="365" class="crease-line"/>
+    <!-- Bottom Face: x=80 to x=310 (w=230px / 153mm) -->
+    <line x1="310" y1="30" x2="310" y2="365" class="crease-line"/>
+    <!-- Left Wall: x=310 to x=366 (w=56px / 37mm) -->
+    <line x1="366" y1="30" x2="366" y2="365" class="crease-line"/>
+    <!-- Top Face (Hero): x=366 to x=596 (w=230px / 153mm) -->
+    <line x1="596" y1="30" x2="596" y2="365" class="crease-line"/>
+    <!-- Right Wall: x=596 to x=652 (w=56px / 37mm) -->
+    <line x1="652" y1="30" x2="652" y2="365" class="crease-line"/>
 
-    <!-- Top & Bottom Turn-in crease lines (15mm from edges) -->
-    <line x1="50" y1="72" x2="670" y2="72" class="crease-line"/>
-    <line x1="50" y1="348" x2="670" y2="348" class="crease-line"/>
+    <!-- Top & Bottom Turn-in Creases (15 mm from short ends) -->
+    <!-- Top Open End Crease (y = 52.5) -->
+    <line x1="50" y1="52.5" x2="680" y2="52.5" class="crease-line"/>
+    <!-- Bottom Open End Crease (y = 342) -->
+    <line x1="50" y1="342" x2="680" y2="342" class="crease-line"/>
 
-    <!-- Panel Labels & Annotations -->
-    <g transform="translate(70, 210) rotate(-90)">
-      <text class="panel-label" x="0" y="0">GLUE TAB (20 mm)</text>
+    <!-- Panel Labels -->
+    <g transform="translate(65, 197) rotate(-90)">
+      <text class="panel-label" x="0" y="0">GLUE FLAP (20 mm)</text>
     </g>
 
-    <g transform="translate(205, 200)">
-      <text class="panel-label" x="0" y="0">BOTTOM BASE</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#666" text-anchor="middle" x="0" y="16">128 × 170 mm</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="10px" fill="#888" text-anchor="middle" x="0" y="32">Barcode &amp; Certifications</text>
+    <g transform="translate(195, 190)">
+      <text class="panel-label" x="0" y="-15">BOTTOM BASE PANEL</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="12px" fill="#444" text-anchor="middle" x="0" y="5">153 × 193 mm</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="10px" fill="#777" text-anchor="middle" x="0" y="24">Barcode, Ingredients &amp; Factory Marks</text>
     </g>
 
-    <g transform="translate(356, 210) rotate(-90)">
-      <text class="panel-label" x="0" y="0">LEFT CLOSED SPINE (40 × 170 mm)</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="9px" fill="#888" text-anchor="middle" x="0" y="12">Gold Foil "PRINCESS ISABELLE"</text>
+    <g transform="translate(338, 197) rotate(-90)">
+      <text class="panel-label" x="0" y="0">SIDE WALL (37 × 193 mm)</text>
     </g>
 
-    <!-- Top Main Face (Hero Panel) -->
-    <g transform="translate(507, 200)">
-      <text class="panel-label" x="0" y="-70">HERO TOP FACE</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#666" text-anchor="middle" x="0" y="-54">128 × 170 mm (Viewing Area)</text>
+    <!-- HERO TOP FACE (100% Exact to Uploaded Image) -->
+    <g transform="translate(481, 190)">
+      <text class="panel-label" x="0" y="-85">HERO TOP FACE (ฝาหน้ากล่องสวม)</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#666" text-anchor="middle" x="0" y="-70">153 × 193 mm (พื้นที่หน้ากล่องสำเร็จ)</text>
+
+      <!-- Gold Foil Ornate Royal Frame -->
+      <rect x="-85" y="-55" width="170" height="135" rx="8" class="foil-zone"/>
       
-      <!-- Gold Foil Stamping Stamp Target -->
-      <rect x="-85" y="-35" width="170" height="90" rx="6" class="foil-zone"/>
-      <circle cx="0" cy="-12" r="14" fill="none" stroke="#B8860B" stroke-width="1.5"/>
-      <text font-family="'Playfair Display', Georgia, serif" font-size="14px" font-weight="bold" fill="#7B4B94" text-anchor="middle" x="0" y="14">Princess Isabelle</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="8px" letter-spacing="1.5" fill="#B8860B" text-anchor="middle" x="0" y="26">GOLDEN SILK FACIAL MASK</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="7px" fill="#7B4B94" text-anchor="middle" x="0" y="36">3 SHEET MASKS • FRESH-MIX RITUAL</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="8px" font-weight="bold" fill="#D4AF37" text-anchor="middle" x="0" y="48">[ GOLD FOIL STAMP + EMBOSS ]</text>
+      <!-- Monogram Emblem -->
+      <circle cx="0" cy="-30" r="16" fill="url(#goldSleeve)" stroke="#B8860B" stroke-width="1.2"/>
+      <path d="M -8,-25 C -8,-35 8,-35 8,-25 C 8,-15 -8,-15 -8,-5 L 8,-5" fill="none" stroke="#4A235A" stroke-width="1.6"/>
+      
+      <!-- Brand Name (Playfair / Royal Script) -->
+      <text font-family="'Playfair Display', Georgia, serif" font-size="16px" font-weight="bold" fill="#4A235A" text-anchor="middle" x="0" y="4">Princess Isabelle</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="7.5px" letter-spacing="2" fill="#B8860B" font-weight="bold" text-anchor="middle" x="0" y="16">BEAUTY WOVEN IN SILK</text>
+
+      <line x1="-50" y1="23" x2="50" y2="23" stroke="#D4AF37" stroke-width="1"/>
+      <polygon points="0,20 3,23 0,26 -3,23" fill="#D4AF37"/>
+
+      <!-- Product Title -->
+      <text font-family="'Playfair Display', Georgia, serif" font-size="11px" font-weight="bold" fill="#3B1E48" text-anchor="middle" x="0" y="38">GOLDEN SILK FACIAL MASK</text>
+      <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#7D3C98" font-weight="bold" text-anchor="middle" x="0" y="50">3 SHEET MASKS</text>
+
+      <text font-family="'Segoe UI', sans-serif" font-size="7.5px" font-weight="bold" fill="#D4AF37" text-anchor="middle" x="0" y="68">[ ปั๊มฟอยล์ทองแท้ KURZ LUXOR + ปั๊มนูน 0.45 mm ]</text>
     </g>
 
-    <g transform="translate(646, 210) rotate(-90)">
-      <text class="panel-label" x="0" y="0">OPEN ENTRY LIP (40 mm)</text>
-      <text font-family="'Segoe UI', sans-serif" font-size="9px" fill="#888" text-anchor="middle" x="0" y="12">Drawer Entrance</text>
+    <g transform="translate(624, 197) rotate(-90)">
+      <text class="panel-label" x="0" y="0">SIDE WALL (37 × 193 mm)</text>
     </g>
 
-    <!-- Turn In Flaps Labels -->
-    <text font-family="'Segoe UI', sans-serif" font-size="9px" fill="#9900FF" text-anchor="middle" x="356" y="60">▲ 15 mm Turn-In Wrap Margin (ขอบพับหุ้มขอบบน) ▲</text>
-    <text font-family="'Segoe UI', sans-serif" font-size="9px" fill="#9900FF" text-anchor="middle" x="356" y="365">▼ 15 mm Turn-In Wrap Margin (ขอบพับหุ้มขอบล่าง) ▼</text>
+    <!-- Short-Side Open Entrance Annotations -->
+    <text font-family="'Segoe UI', sans-serif" font-size="10px" font-weight="bold" fill="#E65100" text-anchor="middle" x="481" y="45">▲ ปากช่องสวมด้านสั้น 153 mm (ดึงถาดสไลด์ออกทางนี้) ▲</text>
+    <text font-family="'Segoe UI', sans-serif" font-size="9px" fill="#9900FF" text-anchor="middle" x="481" y="357">▼ 15 mm Turn-in Wrap Flap ▼</text>
 
     <!-- Dimension Callouts -->
-    <line x1="20" y1="72" x2="20" y2="348" class="dim-line"/>
-    <text class="dim-text" x="5" y="215" transform="rotate(-90 5 215)">170 mm (Length)</text>
+    <!-- Sleeve Length: 193 mm -->
+    <line x1="20" y1="52.5" x2="20" y2="342" class="dim-line"/>
+    <text class="dim-text" x="5" y="197" transform="rotate(-90 5 197)">193 mm (Finished Sleeve Length)</text>
 
-    <line x1="685" y1="45" x2="685" y2="375" class="dim-line"/>
-    <text class="dim-text" x="700" y="215" transform="rotate(90 700 215)">200 mm (Total Wrap Width)</text>
+    <!-- Top Face Width: 153 mm -->
+    <line x1="366" y1="375" x2="596" y2="375" class="dim-line"/>
+    <text class="dim-text" x="481" y="392">153 mm (Top Face Width ด้านสั้น)</text>
 
-    <line x1="392" y1="390" x2="622" y2="390" class="dim-line"/>
-    <text class="dim-text" x="507" y="405">128 mm (Top Face Width)</text>
-
-    <line x1="320" y1="390" x2="392" y2="390" class="dim-line"/>
-    <text class="dim-text" x="356" y="405">40 mm</text>
+    <!-- Wall Height: 37 mm -->
+    <line x1="310" y1="375" x2="366" y2="375" class="dim-line"/>
+    <text class="dim-text" x="338" y="392">37 mm</text>
   </g>
 
-  <!-- Technical Notes Box at bottom right -->
-  <g transform="translate(100, 650)">
-    <rect width="900" height="135" rx="8" fill="#FDFBF7" stroke="#E2D9C8" stroke-width="1"/>
-    <text x="20" y="24" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#4B286D">STRUCTURAL &amp; PRODUCTION SPECIFICATIONS FOR PRINT FACTORY:</text>
-    <text x="20" y="46" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Structure: 1-Piece Rigid Outer Sleeve (Tubular Casing) open on right end for slide-out drawer, closed on left spine.</text>
-    <text x="20" y="64" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Board Core: 2.0 mm (1400 gsm) High-Density Solid Greyboard (Chipboard), V-grooved at 90° for razor-sharp luxury corners.</text>
-    <text x="20" y="82" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Wrapping: 157 gsm Two-Side Coated Art Paper with anti-scratch Soft-Touch Velvet Matte Lamination.</text>
-    <text x="20" y="100" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Embellishments: Kurz Luxor 396 Metallic Gold Hot Stamping Foil on brand emblem, title, and spine + 0.45 mm Embossed Crest.</text>
-    <text x="20" y="118" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Slide Clearance: Internal sleeve clearance of 128 × 170 × 40 mm ensures a luxurious, smooth glide for the 126 × 168 × 38 mm drawer tray.</text>
+  <!-- Technical Notes Box at Bottom -->
+  <g transform="translate(60, 720)">
+    <rect width="1030" height="130" rx="8" fill="#FDFBF7" stroke="#E2D9C8" stroke-width="1"/>
+    <text x="20" y="22" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#4B286D">SHORT-SIDE SLIDE SLEEVE SPECIFICATIONS (สเปกปลอกสวมสไลด์ด้านสั้น สไตล์ CEILK):</text>
+    <text x="20" y="42" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• โครงสร้างปลอกสวม: ปลอกสวมรูปทรงกล่องสไลด์เปิดช่องด้านสั้น (Short-Side Open Sleeve 153 × 37 มม.) สำหรับสอดถาดในเข้า-ออกตามแนวยาว 193 มม.</text>
+    <text x="20" y="60" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• มิติช่องสวมภายใน (Internal Clearance): 151 × 191 × 35 มม. สวมครอบถาดในขนาด 150 × 190 × 34 มม. ได้แนบสนิท ลื่นไหล ไร้แรงเสียดทาน</text>
+    <text x="20" y="78" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• งานพิมพ์และสี: โทนสี Royal Light Lavender &amp; Soft Lilac ตรงตามภาพต้นฉบับ 100% เป๊ะ ไม่มีการเปลี่ยนแปลง</text>
+    <text x="20" y="96" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• ตราโลโก้และเทคนิคพิเศษ: โลโก้ Princess Isabelle + ลวดลายกนกทอง ปั๊มฟอยล์ทองแท้ (Kurz Luxor 396) + ปั๊มนูน Embossing 0.45 มม.</text>
+    <text x="20" y="114" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• วัสดุ: จั่วปัง 2.0 มม. หุ้มกระดาษอาร์ต 157 gsm เคลือบ Soft-Touch Matte ปลอกสวมทนทานแข็งแกร่งระดับพรีเมียม</text>
   </g>
 </svg>
