@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Princess Isabelle — Luxury Packaging 3D Studio & Factory Proofing Portal (Slide Box & Fresh-Mix System)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#overview" class="brand-logo">
+        <div class="brand-emblem">PI</div>
+        <div>
+          <div class="brand-name brand-font">Princess Isabelle</div>
+          <div class="brand-tagline">BEAUTY WOVEN IN SILK</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#simulator" class="active">🎮 3D Slide Simulator</a>
+        <a href="#ritual">✨ Fresh-Mix Ritual</a>
+        <a href="#specs">📋 Factory Specifications</a>
+        <a href="#dielines">📐 CAD Vector Dielines</a>
+        <a href="#shipping">📦 Master Carton Specs</a>
+        <a href="#downloads">📥 Production Assets</a>
+        <a href="index_th.html" class="lang-switch">TH</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner" id="overview">
+    <div class="hero-badge">CEILK-STYLE RIGID SLIDE BOX &amp; DUAL-POUCH FRESH-MIX SYSTEM</div>
+    <h1 class="hero-title">Rigid Drawer Box &amp; Fresh Golden Silk Serum System</h1>
+    <p class="hero-subtitle">
+      Comprehensive engineering proofing portal &amp; 3D interactive simulator for the redesigned packaging: Rigid Matchbox-style sleeve and drawer with champagne gold satin ribbon pull, enclosing 3 sets of dual-chamber fresh-mix silk masks.
+    </p>
+  </section>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- 3D Interactive Simulator Section -->
+    <section class="studio-grid" id="simulator">
+      <!-- 3D WebGL Canvas Card -->
+      <div class="canvas-card">
+        <div class="canvas-header">
+          <div class="canvas-title">
+            <span>✨ Interactive WebGL 3D Simulator</span>
+          </div>
+          <div class="controls-badge">Click &amp; Drag to Rotate 360° • Scroll to Zoom</div>
+        </div>
+
+        <!-- Three.js Viewport -->
+        <div id="webgl-viewport"></div>
+
+        <!-- View Mode Buttons Toolbar (Grok Style) -->
+        <div class="view-modes-bar">
+          <span style="font-size: 11.5px; font-weight: bold; color: #7B1FA2; margin-right: 4px;">Preset Views:</span>
+          <button type="button" class="view-btn active" id="view-btn-hero" onclick="setViewMode('hero')">👑 Hero View</button>
+          <button type="button" class="view-btn" id="view-btn-inside" onclick="setViewMode('inside')">🔍 Inside Tray</button>
+          <button type="button" class="view-btn" id="view-btn-exploded" onclick="setViewMode('exploded')">💥 Exploded View</button>
+          <button type="button" class="view-btn" id="view-btn-turntable" onclick="setViewMode('turntable')">🔄 360° Turntable</button>
+          <button type="button" class="view-btn" id="view-btn-mask" onclick="setViewMode('mask')">📄 Outer Sachet 12×16</button>
+          <button type="button" class="view-btn" id="view-btn-serum" onclick="setViewMode('serum')">💧 Serum Pouch 9×12</button>
+        </div>
+
+        <!-- Slider Control Panel -->
+        <div class="slider-panel">
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>Pull Drawer Slide (Slide Open/Close)</span>
+              <span id="slide-value" class="highlight-gold">65%</span>
+            </div>
+            <input type="range" id="slide-range" class="range-slider" min="0" max="100" value="65">
+          </div>
+
+          <div class="preset-buttons">
+            <button class="btn-pill" id="btn-preset-closed">🔒 Closed (0%)</button>
+            <button class="btn-pill active" id="btn-preset-part">✨ Sachet Reveal (65%)</button>
+            <button class="btn-pill" id="btn-preset-open">📦 Fully Open (100%)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Specs & Structural Info Sidebar -->
+      <aside class="info-sidebar">
+        <div class="luxury-card">
+          <h3 class="card-title">
+            <span>📦 Packaging Specifications</span>
+            <span class="highlight-gold">Version 2.0</span>
+          </h3>
+          <div class="spec-list">
+            <div class="spec-item">
+              <span class="spec-key">Box Style</span>
+              <span class="spec-val">Rigid Drawer Box (CEILK Slide Style)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Finished External Size</span>
+              <span class="spec-val highlight-gold">132 × 174 × 43 mm</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Inner Drawer Cavity</span>
+              <span class="spec-val">126 × 168 × 38 mm (Depth: 38 mm)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Opening Mechanism</span>
+              <span class="spec-val">15 mm Champagne Gold Satin Ribbon</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Pack Capacity</span>
+              <span class="spec-val">3 Complete Sets (Stacked Neatly)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Outer Sachet Dimensions</span>
+              <span class="spec-val">120 × 160 mm (12 × 16 cm)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">Inner Serum Pouch</span>
+              <span class="spec-val">90 × 120 mm (9 × 12 cm / 30 ml)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="luxury-card">
+          <h3 class="card-title">
+            <span>🔬 30 ml Serum Bulge Engineering</span>
+          </h3>
+          <p style="font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 12px;">
+            A 30 ml volume sealed in a 9×12 cm pouch naturally creates a central cushion bulge of <strong>9.5 – 11 mm</strong>. When housed with the dry silk sheet in the 12×16 cm sachet, each finished set measures <strong>~11.5 mm</strong>.
+          </p>
+          <div style="background: #FAF2FE; padding: 12px; border-radius: 8px; border-left: 3px solid #7D3C98; font-size: 12.5px; color: #4A235A;">
+            ✓ 3 stacked sachets total <strong>~34.5 mm</strong> height, perfectly fitting into the <strong>38 mm</strong> deep drawer with a 3.5 mm gliding clearance. Prevents box distortion and ensures smooth sliding.
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Master Presentation Graphic Board Section -->
+    <section class="luxury-card" style="margin-bottom: 50px;">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 10px;">🖼️ Master Presentation Board (Photorealistic Suite)</h2>
+      <p style="font-size: 13.5px; color: #666; margin-bottom: 20px;">
+        Complete structural overview of the CEILK-style slide box: All Box Angles, Inside View with gold ribbon, Exploded Architecture, and Fresh-Mix dual-sachet breakdown.
+      </p>
+      <div style="border-radius: 12px; overflow: hidden; border: 1.5px solid var(--glass-border); box-shadow: var(--shadow-luxury);">
+        <img src="Princess_Isabelle_Slide_Box_Master_Presentation.jpg" alt="Princess Isabelle Master Board" style="width: 100%; height: auto; display: block;">
+      </div>
+    </section>
+
+    <!-- Fresh-Mix Ritual Flow Section -->
+    <section class="ritual-section" id="ritual">
+      <div class="section-header">
+        <h2 class="section-title">✨ The Royal Fresh-Mix Ritual</h2>
+        <p class="section-subtitle">Isolating the 30 ml active serum ensures peak potency and vitality of golden silk fibroin peptides until the moment of application.</p>
+      </div>
+
+      <div class="ritual-grid">
+        <div class="ritual-step-card">
+          <div class="step-number">1</div>
+          <h4 class="step-title">Unveil The Box</h4>
+          <p class="step-desc">Pull the champagne gold satin ribbon to glide open the drawer and retrieve one dual-sachet set.</p>
+        </div>
+
+        <div class="ritual-step-card">
+          <div class="step-number">2</div>
+          <h4 class="step-title">Reveal Components</h4>
+          <p class="step-desc">Tear along the notches of the 12×16 cm outer sachet to extract the dry silk mask and the inner 9×12 cm serum pouch.</p>
+        </div>
+
+        <div class="ritual-step-card">
+          <div class="step-number">3</div>
+          <h4 class="step-title">Activate Fresh Serum</h4>
+          <p class="step-desc">Tear the serum pouch at the directional notch and pour the 30 ml active formula evenly over the dry silk mask to activate within 10 seconds.</p>
+        </div>
+
+        <div class="ritual-step-card">
+          <div class="step-number">4</div>
+          <h4 class="step-title">Radiate &amp; Glow</h4>
+          <p class="step-desc">Smooth the drenched silk mask onto cleansed face for 15-20 minutes of royal pampering and luminous skin renewal.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vector CAD Dieline Hub Section -->
+    <section class="dieline-hub" id="dielines">
+      <div class="section-header">
+        <h2 class="section-title">📐 Vector CAD Dieline Inspection Hub</h2>
+        <p class="section-subtitle">1:1 scaled vector blueprints featuring die-cut lines, fold creases, turn-in wrap margins, and gold foil stamping blocks for print factories.</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="dieline-tabs">
+        <button class="dieline-tab-btn active" onclick="switchDieline('sleeve', this)">1. Outer Rigid Sleeve Dieline</button>
+        <button class="dieline-tab-btn" onclick="switchDieline('drawer', this)">2. Inner Drawer Tray &amp; Ribbon Slot</button>
+        <button class="dieline-tab-btn" onclick="switchDieline('outer_sachet', this)">3. Outer Mask Sachet (12 × 16 cm)</button>
+        <button class="dieline-tab-btn" onclick="switchDieline('inner_serum', this)">4. Inner Serum Pouch (9 × 12 cm)</button>
+      </div>
+
+      <!-- Dieline Preview Frame Card -->
+      <div class="dieline-preview-card">
+        <iframe id="dieline-frame" class="dieline-frame" src="Dieline_Princess_Isabelle_Slide_Sleeve.svg"></iframe>
+
+        <div class="dieline-action-bar">
+          <div>
+            <strong id="dieline-title-text" style="color: var(--primary-purple); font-size: 15px;">1. Outer Rigid Sleeve Dieline</strong>
+            <div id="dieline-dim-text" style="font-size: 12px; color: #666;">132 × 174 × 43 mm (Wrap over 2.0 mm Greyboard)</div>
+          </div>
+          <div>
+            <a id="dieline-download-btn" href="Dieline_Princess_Isabelle_Slide_Sleeve.svg" download class="btn-gold">
+              ⬇ Download Vector Dieline (.SVG)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specs Table Section -->
+    <section class="luxury-card" id="specs" style="margin-bottom: 50px;">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">📋 Factory Technical Specification Matrix</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left;">
+          <thead>
+            <tr style="background: #F5EEFA; color: var(--primary-purple); border-bottom: 2px solid var(--gold-primary);">
+              <th style="padding: 12px 14px;">Component</th>
+              <th style="padding: 12px 14px;">Finished Size (mm)</th>
+              <th style="padding: 12px 14px;">Substrate &amp; Caliper</th>
+              <th style="padding: 12px 14px;">Coating &amp; Post-Press Finishes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #EAECEE;">
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">Outer Slide Sleeve</td>
+              <td style="padding: 12px 14px;">132 × 174 × 43</td>
+              <td style="padding: 12px 14px;">2.0 mm (1400 gsm) Greyboard + 157 gsm C2S Art Paper</td>
+              <td style="padding: 12px 14px;">Soft-Touch Velvet Matte + Kurz Luxor 396 Gold Foil Stamping + 0.45 mm Embossed Crest</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #EAECEE;">
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">Inner Drawer Tray</td>
+              <td style="padding: 12px 14px;">126 × 168 × 38</td>
+              <td style="padding: 12px 14px;">2.0 mm Greyboard with 90° V-Grooving + 157 gsm Wrap</td>
+              <td style="padding: 12px 14px;">Anti-scratch matte lamination + 16 mm slit for 15 mm Champagne Gold Satin Ribbon</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #EAECEE;">
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">Outer Sachet</td>
+              <td style="padding: 12px 14px;">120 × 160</td>
+              <td style="padding: 12px 14px;">Matte PET 12µ / AL 7µ / NY 15µ / LLDPE 80µ (Total 114µ)</td>
+              <td style="padding: 12px 14px;">9-Color Gravure + 8-10 mm heat seals + Dual V-Cut easy tear notches at 20 mm</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">Inner Serum Pouch</td>
+              <td style="padding: 12px 14px;">90 × 120</td>
+              <td style="padding: 12px 14px;">PET 12µ / AL 9µ / NY 15µ / CPP 60µ (100% Light &amp; O2 Barrier)</td>
+              <td style="padding: 12px 14px;">30 ml capacity + 45° angled directional pour notch for precise mess-free application</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Shipping & Logistics Master Carton Section -->
+    <section class="luxury-card" id="shipping" style="margin-bottom: 50px;">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 10px;">📦 Master Shipping Carton &amp; Logistics Specifications</h2>
+      <p style="font-size: 13.5px; color: #666; margin-bottom: 20px;">
+        Optimized arrangement of slide boxes in heavy-duty corrugated export cartons for logistics and international delivery.
+      </p>
+
+      <div class="shipping-grid">
+        <div class="shipping-box">
+          <div class="shipping-title">Standard Master Shipper Carton</div>
+          <p style="font-size: 13px; color: #444; line-height: 1.6;">
+            • <strong>Quantity per Carton:</strong> 24 Box Sets (24 Units)<br>
+            • <strong>Arrangement:</strong> 6 boxes per layer (2×3 grid) × 4 stacked layers<br>
+            • <strong>Internal Dimensions:</strong> 275 mm (W) × 530 mm (L) × 185 mm (H)<br>
+            • <strong>External Dimensions:</strong> 285 × 545 × 200 mm
+          </p>
+        </div>
+
+        <div class="shipping-box">
+          <div class="shipping-title">Weight &amp; Compression Strength</div>
+          <p style="font-size: 13px; color: #444; line-height: 1.6;">
+            • <strong>Net Weight per Box:</strong> ~215 grams (Rigid box + 3 × 30 ml serum pouches)<br>
+            • <strong>Gross Weight per Carton:</strong> ~5.8 – 6.2 kg<br>
+            • <strong>Carton Substrate:</strong> Double Wall 5-ply corrugated board (B/C Flute 175/150 gsm), stackable up to 8 tiers.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Production Asset Downloads Section -->
+    <section class="downloads-section" id="downloads" style="margin-bottom: 80px;">
+      <div class="section-header">
+        <h2 class="section-title">📥 Factory Production Assets &amp; Specifications</h2>
+        <p class="section-subtitle">1:1 Vector CAD Dielines for steel rule cutting dies and technical production manuals.</p>
+      </div>
+
+      <!-- 1-Click ZIP Banner -->
+      <div style="background: linear-gradient(135deg, #FAF2FE 0%, #F5E9FC 100%); border: 1.5px solid var(--gold-primary); border-radius: 14px; padding: 22px 28px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="font-size: 17px; font-weight: bold; color: var(--primary-purple);">📦 1-Click Complete Factory Production Package (ZIP)</div>
+          <div style="font-size: 13px; color: #666;">Includes all 4 CAD vector dielines (.SVG), English &amp; Thai production manuals (.MD), Master Presentation Board, and 3D portal source code.</div>
+        </div>
+        <a href="Princess_Isabelle_Slide_Box_Print_Package.zip" download class="btn-gold" style="padding: 12px 28px; font-size: 14px;">
+          ⬇ Download All (1-Click ZIP)
+        </a>
+      </div>
+
+      <div class="downloads-grid">
+        <div class="download-card">
+          <div>
+            <div class="download-title">1. Outer Slide Sleeve (.SVG)</div>
+            <div class="download-desc">CAD dieline with 15 mm turn-ins, spine creasing, and gold foil markings.</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Slide_Sleeve.svg" download class="btn-gold">Download SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">2. Inner Drawer Tray (.SVG)</div>
+            <div class="download-desc">CAD dieline for 126×168×38 mm drawer tray with 16 mm ribbon slit.</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Slide_Drawer.svg" download class="btn-gold">Download SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">3. Outer Sachet 12×16 cm (.SVG)</div>
+            <div class="download-desc">Front &amp; Back foil dieline with heat seal margins and tear notches.</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Outer_Sachet_12x16.svg" download class="btn-gold">Download SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">4. Inner Serum Pouch 9×12 cm (.SVG)</div>
+            <div class="download-desc">CAD dieline for 30 ml serum pouch with directional pour corner.</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Inner_Serum_Sachet_9x12.svg" download class="btn-gold">Download SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">5. Technical Manual English (.MD)</div>
+            <div class="download-desc">Complete international factory engineering &amp; printing specifications.</div>
+          </div>
+          <a href="Princess_Isabelle_Packaging_Manual_EN.md" download class="btn-gold">Download Manual EN</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">6. Master Presentation Board (.SVG)</div>
+            <div class="download-desc">Master Presentation Diagram with full exploded system dimensions.</div>
+          </div>
+          <a href="Princess_Isabelle_Slide_Box_Master_Presentation.svg" download class="btn-gold">Download Master Board</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Princess Isabelle</div>
+    <div>A ROYAL TOUCH IN EVERY DETAIL • BEAUTY WOVEN IN SILK</div>
+    <div style="margin-top: 10px; font-size: 11.5px; color: #888;">
+      © 2026 Princess Isabelle Skincare. All Packaging Blueprints and 3D Assets are Commercial Print-Factory Ready.
+    </div>
+  </footer>
+
+  <!-- Three.js Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

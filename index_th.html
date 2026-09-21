@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Princess Isabelle — พอร์ทัลตรวจแบบจำลองบรรจุภัณฑ์ 3D & สเปกการผลิต (ระบบกล่องสไลด์ & ซองคู่ผสมสด)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="nav-container">
+      <a href="#overview" class="brand-logo">
+        <div class="brand-emblem">PI</div>
+        <div>
+          <div class="brand-name brand-font">Princess Isabelle</div>
+          <div class="brand-tagline">BEAUTY WOVEN IN SILK</div>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#simulator" class="active">🎮 3D สตูดิโอกล่องสไลด์</a>
+        <a href="#ritual">✨ ขั้นตอนผสมสด (Ritual)</a>
+        <a href="#specs">📋 ข้อมูลจำเพาะโรงพิมพ์</a>
+        <a href="#dielines">📐 แปลนไดไลน์ CAD</a>
+        <a href="#shipping">📦 สเปกลังขนส่ง Master Carton</a>
+        <a href="#downloads">📥 ดาวน์โหลดไฟล์สั่งผลิต</a>
+        <a href="index.html" class="lang-switch">EN</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner" id="overview">
+    <div class="hero-badge">CEILK-STYLE RIGID SLIDE BOX &amp; DUAL-POUCH FRESH-MIX SYSTEM</div>
+    <h1 class="hero-title">ระบบกล่องลิ้นชักจั่วปัง &amp; ซองคู่สารสกัดรังไหมทองคำสด</h1>
+    <p class="hero-subtitle">
+      ศูนย์ตรวจสอบแบบจำลอง 3 มิติเชิงวิศวกรรมบรรจุภัณฑ์สำหรับโรงพิมพ์และทีมออกแบบ: กล่องสไลด์พร้อมริบบิ้นผ้าซาตินสีทองแชมเปญ บรรจุซองนอกขนาด 12×16 ซม. และซองเซรั่มสดขนาด 9×12 ซม. (30 มล.) จำนวน 3 ชุด
+    </p>
+  </section>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+
+    <!-- 3D Interactive Simulator Section -->
+    <section class="studio-grid" id="simulator">
+      <!-- 3D WebGL Canvas Card -->
+      <div class="canvas-card">
+        <div class="canvas-header">
+          <div class="canvas-title">
+            <span>✨ แบบจำลอง 3D เสมือนจริง (Interactive WebGL 3D Studio)</span>
+          </div>
+          <div class="controls-badge">คลิกเมาส์ค้างหมุน 360° • ล้อเลื่อนเพื่อซูม</div>
+        </div>
+
+        <!-- Three.js Viewport -->
+        <div id="webgl-viewport"></div>
+
+        <!-- View Mode Buttons Toolbar (Grok Style) -->
+        <div class="view-modes-bar">
+          <span style="font-size: 11.5px; font-weight: bold; color: #7B1FA2; margin-right: 4px;">มุมมอง (Views):</span>
+          <button type="button" class="view-btn active" id="view-btn-hero" onclick="setViewMode('hero')">👑 Hero View</button>
+          <button type="button" class="view-btn" id="view-btn-inside" onclick="setViewMode('inside')">🔍 Inside Tray</button>
+          <button type="button" class="view-btn" id="view-btn-exploded" onclick="setViewMode('exploded')">💥 แยกชิ้นส่วน (Exploded)</button>
+          <button type="button" class="view-btn" id="view-btn-turntable" onclick="setViewMode('turntable')">🔄 หมุน 360° (Turntable)</button>
+          <button type="button" class="view-btn" id="view-btn-mask" onclick="setViewMode('mask')">📄 ซองนอก 12×16</button>
+          <button type="button" class="view-btn" id="view-btn-serum" onclick="setViewMode('serum')">💧 ซองเซรั่ม 9×12 (30ml)</button>
+        </div>
+
+        <!-- Slider Control Panel -->
+        <div class="slider-panel">
+          <div class="slider-group">
+            <div class="slider-label-row">
+              <span>เลื่อนสไลด์เปิดถาดลิ้นชัก (Pull Drawer Slide)</span>
+              <span id="slide-value" class="highlight-gold">65%</span>
+            </div>
+            <input type="range" id="slide-range" class="range-slider" min="0" max="100" value="65">
+          </div>
+
+          <div class="preset-buttons">
+            <button class="btn-pill" id="btn-preset-closed">🔒 ปิดสนิท (0%)</button>
+            <button class="btn-pill active" id="btn-preset-part">✨ สไลด์โชว์ซอง (65%)</button>
+            <button class="btn-pill" id="btn-preset-open">📦 เปิดสุด (100%)</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Specs & Structural Info Sidebar -->
+      <aside class="info-sidebar">
+        <div class="luxury-card">
+          <h3 class="card-title">
+            <span>📦 สรุปโครงสร้างกล่องสำเร็จ</span>
+            <span class="highlight-gold">Version 2.0</span>
+          </h3>
+          <div class="spec-list">
+            <div class="spec-item">
+              <span class="spec-key">สไตล์กล่อง (Style)</span>
+              <span class="spec-val">Rigid Drawer Box (กล่องไม้ขีดสไลด์)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">ขนาดภายนอกกล่อง</span>
+              <span class="spec-val highlight-gold">132 × 174 × 43 มม.</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">ช่องว่างถาดใน (Inner Tray)</span>
+              <span class="spec-val">126 × 168 × 38 มม. (ลึก 38 มม.)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">กลไกการเปิด (Pull Tab)</span>
+              <span class="spec-val">ริบบิ้นซาตินทองแชมเปญ 15 มม. ด้านขวา</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">จำนวนบรรจุภายใน</span>
+              <span class="spec-val">3 ชุดมาส์ก (ซ้อนกัน 3 ซองพอดี)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">ขนาดซองนอก (Outer Sachet)</span>
+              <span class="spec-val">120 × 160 มม. (12 × 16 ซม.)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-key">ขนาดซองเซรั่มใน (Inner Pouch)</span>
+              <span class="spec-val">90 × 120 มม. (9 × 12 ซม. / 30 ml)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="luxury-card">
+          <h3 class="card-title">
+            <span>🔬 การคำนวณความจุเซรั่ม 30 มล.</span>
+          </h3>
+          <p style="font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 12px;">
+            เซรั่ม 30 มล. ในซองขนาด 9×12 ซม. มีความนูนตรงกลางประมาณ <strong>9.5 – 11 มม.</strong> เมื่อใส่ในซองนอกร่วมกับแผ่นมาส์กแห้ง จะหนาชุดละ <strong>~11.5 มม.</strong>
+          </p>
+          <div style="background: #FAF2FE; padding: 12px; border-radius: 8px; border-left: 3px solid #7D3C98; font-size: 12.5px; color: #4A235A;">
+            ✓ แพ็ค 3 ชุดหนารวม <strong>~34.5 มม.</strong> ลงถาดลึก <strong>38 มม.</strong> ได้อย่างสมบูรณ์แบบ มีระยะฟรี 3.5 มม. สไลด์เข้า-ออกเรียบลื่น ไม่ดันกล่องบวม
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Master Presentation Graphic Board Section -->
+    <section class="luxury-card" style="margin-bottom: 50px;">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 10px;">🖼️ แผ่นมาสเตอร์บอร์ดนำเสนอแบบจำลองบรรจุภัณฑ์ (Master Presentation Board)</h2>
+      <p style="font-size: 13.5px; color: #666; margin-bottom: 20px;">
+        สรุปภาพรวมงานออกแบบกล่องสไลด์จั่วปัง ทุกมุมมอง (All Box Angles), มุมมองด้านใน (Inside View), มุมมองระเบิดโครงสร้าง (Exploded View) และระบบซองคู่ Fresh-Mix
+      </p>
+      <div style="border-radius: 12px; overflow: hidden; border: 1.5px solid var(--glass-border); box-shadow: var(--shadow-luxury);">
+        <img src="Princess_Isabelle_Slide_Box_Master_Presentation.jpg" alt="Princess Isabelle Master Board" style="width: 100%; height: auto; display: block;">
+      </div>
+    </section>
+
+    <!-- Fresh-Mix Ritual Flow Section -->
+    <section class="ritual-section" id="ritual">
+      <div class="section-header">
+        <h2 class="section-title">✨ ขั้นตอนพิธีกรรมบำรุงผิวแบบผสมสด (Fresh-Mix Royal Ritual)</h2>
+        <p class="section-subtitle">การแยกบรรจุเซรั่ม 30 มล. เพื่อคงความสดใหม่และคุณค่าเปปไทด์รังไหมทองคำสูงสุดก่อนใช้งาน</p>
+      </div>
+
+      <div class="ritual-grid">
+        <div class="ritual-step-card">
+          <div class="step-number">1</div>
+          <h4 class="step-title">Unveil The Box</h4>
+          <p class="step-desc">ดึงริบบิ้นผ้าซาตินสีทองเพื่อสไลด์เปิดถาดลิ้นชักกล่อง หยิบซองมาส์ก 1 ชิ้นออกมา</p>
+        </div>
+
+        <div class="ritual-step-card">
+          <div class="step-number">2</div>
+          <h4 class="step-title">Reveal Components</h4>
+          <p class="step-desc">ฉีกซองนอกขนาด 12×16 ซม. ตามรอยบาก เพื่อนำแผ่นมาส์กไหมทองคำแบบแห้งและซองเซรั่มออกมา</p>
+        </div>
+
+        <div class="ritual-step-card">
+          <div class="step-number">3</div>
+          <h4 class="step-title">Activate Fresh Serum</h4>
+          <p class="step-desc">ฉีกซองเซรั่มขนาด 9×12 ซม. ตามมุมเท แล้วเทเซรั่มเข้มข้น 30 มล. ชโลมแผ่นมาส์กแห้งสดๆ ดูดซึมเต็มแผ่นใน 10 วินาที</p>
+        </div>
+
+        <div class="ritual-step-card">
+          <div class="step-number">4</div>
+          <h4 class="step-title">Radiate &amp; Glow</h4>
+          <p class="step-desc">คลี่แผ่นมาส์กวางแนบสนิทกับผิวหน้า ทิ้งไว้ 15-20 นาที เพื่อสัมผัสการฟื้นบำรุงล้ำลึกระดับราชวงศ์</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vector CAD Dieline Hub Section -->
+    <section class="dieline-hub" id="dielines">
+      <div class="section-header">
+        <h2 class="section-title">📐 ศูนย์ตรวจสอบแบบแปลนไดไลน์เวกเตอร์ (Vector CAD Dielines)</h2>
+        <p class="section-subtitle">แบบแปลนมาตราส่วน 1:1 พร้อมสเปกแนวตัด รอยพับ ระยะพับหุ้ม และมาร์กปั๊มฟอยล์ทอง สำหรับส่งโรงพิมพ์</p>
+      </div>
+
+      <!-- Tab Buttons -->
+      <div class="dieline-tabs">
+        <button class="dieline-tab-btn active" onclick="switchDieline('sleeve', this)">1. ปลอกสวมกล่องสไลด์ (Outer Sleeve)</button>
+        <button class="dieline-tab-btn" onclick="switchDieline('drawer', this)">2. ถาดลิ้นชักจั่วปัง + ริบบิ้น (Drawer Tray)</button>
+        <button class="dieline-tab-btn" onclick="switchDieline('outer_sachet', this)">3. ซองนอก 12 × 16 ซม. (Outer Sachet)</button>
+        <button class="dieline-tab-btn" onclick="switchDieline('inner_serum', this)">4. ซองเซรั่มใน 9 × 12 ซม. (Inner Serum)</button>
+      </div>
+
+      <!-- Dieline Preview Frame Card -->
+      <div class="dieline-preview-card">
+        <iframe id="dieline-frame" class="dieline-frame" src="Dieline_Princess_Isabelle_Slide_Sleeve.svg"></iframe>
+
+        <div class="dieline-action-bar">
+          <div>
+            <strong id="dieline-title-text" style="color: var(--primary-purple); font-size: 15px;">1. Outer Rigid Sleeve Dieline (ปลอกสวมกล่องสไลด์)</strong>
+            <div id="dieline-dim-text" style="font-size: 12px; color: #666;">132 × 174 × 43 mm (Wrap over 2.0 mm Greyboard)</div>
+          </div>
+          <div>
+            <a id="dieline-download-btn" href="Dieline_Princess_Isabelle_Slide_Sleeve.svg" download class="btn-gold">
+              ⬇ ดาวน์โหลดไฟล์เวกเตอร์ไดไลน์ (.SVG)
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specs Table Section -->
+    <section class="luxury-card" id="specs" style="margin-bottom: 50px;">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">📋 ตารางข้อมูลจำเพาะทางเทคนิคสำหรับฝ่ายผลิต (Factory Spec Matrix)</h2>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; text-align: left;">
+          <thead>
+            <tr style="background: #F5EEFA; color: var(--primary-purple); border-bottom: 2px solid var(--gold-primary);">
+              <th style="padding: 12px 14px;">ชิ้นส่วนบรรจุภัณฑ์</th>
+              <th style="padding: 12px 14px;">ขนาดสำเร็จ (มม.)</th>
+              <th style="padding: 12px 14px;">ชนิดกระดาษ / โครงสร้างวัสดุ</th>
+              <th style="padding: 12px 14px;">การเคลือบและเทคนิคพิเศษ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #EAECEE;">
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">ปลอกสวมกล่องนอก (Outer Sleeve)</td>
+              <td style="padding: 12px 14px;">132 × 174 × 43</td>
+              <td style="padding: 12px 14px;">จั่วปัง 2.0 มม. (1400 gsm) + กระดาษอาร์ตการ์ด 157 gsm</td>
+              <td style="padding: 12px 14px;">ลามิเนตด้าน Soft-Touch + ปั๊มฟอยล์ทองแท้ (Kurz Luxor 396) + ปั๊มนูนตราสินค้า 0.45 มม.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #EAECEE;">
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">ถาดลิ้นชักใน (Inner Drawer)</td>
+              <td style="padding: 12px 14px;">126 × 168 × 38</td>
+              <td style="padding: 12px 14px;">จั่วปัง 2.0 มม. เซาะร่อง V-Groove 90° + กระดาษอาร์ต 157 gsm</td>
+              <td style="padding: 12px 14px;">ลามิเนตด้านกันรอย + เจาะช่อง 16 มม. ติดริบบิ้นซาตินทองแชมเปญ 15 มม.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #EAECEE;">
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">ซองนอก (Outer Sachet)</td>
+              <td style="padding: 12px 14px;">120 × 160</td>
+              <td style="padding: 12px 14px;">Matte PET 12µ / AL 7µ / NY 15µ / LLDPE 80µ (รวม 114µ)</td>
+              <td style="padding: 12px 14px;">พิมพ์กราเวียร์ 9 สี + ซีลขอบ 8-10 มม. + รอยบากฉีก V-Cut คู่ สูงจากขอบบน 20 มม.</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 14px; font-weight: bold; color: var(--primary-purple);">ซองเซรั่มใน (Inner Serum Pouch)</td>
+              <td style="padding: 12px 14px;">90 × 120</td>
+              <td style="padding: 12px 14px;">PET 12µ / AL 9µ / NY 15µ / CPP 60µ (กั้นแสงและความชื้น 100%)</td>
+              <td style="padding: 12px 14px;">ความจุ 30 มล. + รอยบากฉีกมุมเท 45° ควบคุมการไหล ไม่เลอะมือ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Shipping & Logistics Master Carton Section -->
+    <section class="luxury-card" id="shipping" style="margin-bottom: 50px;">
+      <h2 class="section-title" style="text-align: left; margin-bottom: 10px;">📦 ข้อมูลการจัดส่งและขนาดลังบรรจุ (Master Shipping Carton Specs)</h2>
+      <p style="font-size: 13.5px; color: #666; margin-bottom: 20px;">
+        คำนวณการเรียงกล่องสไลด์ลงในกล่องลูกฟูกสำหรับการขนส่งเชิงพาณิชย์ (Export Standard Carton)
+      </p>
+
+      <div class="shipping-grid">
+        <div class="shipping-box">
+          <div class="shipping-title">สเปกลังลูกฟูกมาตรฐาน (Standard Master Carton)</div>
+          <p style="font-size: 13px; color: #444; line-height: 1.6;">
+            • <strong>จำนวนบรรจุต่อลัง:</strong> 24 กล่อง (Pack of 24 Units)<br>
+            • <strong>การจัดเรียง:</strong> ชั้นละ 6 กล่อง (2×3) × ซ้อน 4 ชั้น<br>
+            • <strong>ขนาดภายในลัง:</strong> 275 มม. (กว้าง) × 530 มม. (ยาว) × 185 มม. (สูง)<br>
+            • <strong>ขนาดภายนอกลัง:</strong> 285 × 545 × 200 มม.
+          </p>
+        </div>
+
+        <div class="shipping-box">
+          <div class="shipping-title">น้ำหนักและการรับน้ำหนัก (Weight &amp; Durability)</div>
+          <p style="font-size: 13px; color: #444; line-height: 1.6;">
+            • <strong>น้ำหนักสุทธิต่อกล่อง:</strong> ประมาณ 215 กรัม (กล่องจั่วปัง + 3 ชุดเซรั่ม 90 มล.)<br>
+            • <strong>น้ำหนักรวมต่อลัง (Gross Weight):</strong> ประมาณ 5.8 – 6.2 กก.<br>
+            • <strong>ชนิดลังลูกฟูก:</strong> ลอน B/C หนา 5 ชั้น (Double Wall 175/150 gsm) ทนแรงกดทับสูงสุด 80 กก.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Production Asset Downloads Section -->
+    <section class="downloads-section" id="downloads" style="margin-bottom: 80px;">
+      <div class="section-header">
+        <h2 class="section-title">📥 ดาวน์โหลดเอกสารและไฟล์สั่งผลิตโรงพิมพ์ (Production Asset Files)</h2>
+        <p class="section-subtitle">ไฟล์เวกเตอร์ CAD 1:1 สำหรับแม่พิมพ์ตัด และเอกสารคู่มือข้อมูลจำเพาะทางเทคนิค</p>
+      </div>
+
+      <!-- 1-Click ZIP Banner -->
+      <div style="background: linear-gradient(135deg, #FAF2FE 0%, #F5E9FC 100%); border: 1.5px solid var(--gold-primary); border-radius: 14px; padding: 22px 28px; margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="font-size: 17px; font-weight: bold; color: var(--primary-purple);">📦 ดาวน์โหลดชุดไฟล์สั่งผลิตครบทั้งหมดในคลิกเดียว (All-in-One Production ZIP)</div>
+          <div style="font-size: 13px; color: #666;">รวมแบบแปลนไดไลน์ 4 ไฟล์ (.SVG), คู่มือสเปกโรงพิมพ์ไทย-อังกฤษ (.MD), ภาพมาสเตอร์พรีเซนต์ และซอร์สโค้ดหน้าเว็บ</div>
+        </div>
+        <a href="Princess_Isabelle_Slide_Box_Print_Package.zip" download class="btn-gold" style="padding: 12px 28px; font-size: 14px;">
+          ⬇ ดาวน์โหลดแพ็กเกจรวม (ZIP 1-Click)
+        </a>
+      </div>
+
+      <div class="downloads-grid">
+        <div class="download-card">
+          <div>
+            <div class="download-title">1. ปลอกสวมกล่องสไลด์ (.SVG)</div>
+            <div class="download-desc">ไดไลน์ปลอกสวมกล่องจั่วปัง พร้อมระยะพับหุ้ม 15 มม. และตำแหน่งฟอยล์ทอง</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Slide_Sleeve.svg" download class="btn-gold">ดาวน์โหลด SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">2. ถาดลิ้นชักจั่วปัง (.SVG)</div>
+            <div class="download-desc">ไดไลน์ถาดลิ้นชัก V-Groove 126×168×38 มม. พร้อมช่องร้อยริบบิ้นดึง 16 มม.</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Slide_Drawer.svg" download class="btn-gold">ดาวน์โหลด SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">3. ซองนอก 12×16 ซม. (.SVG)</div>
+            <div class="download-desc">ไดไลน์ซองนอกหน้า-หลัง บรรจุแผ่นมาส์กแห้ง + ซองเซรั่มใน พร้อมแนวซีลและรอยบาก</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Outer_Sachet_12x16.svg" download class="btn-gold">ดาวน์โหลด SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">4. ซองเซรั่มใน 9×12 ซม. (.SVG)</div>
+            <div class="download-desc">ไดไลน์ซองเซรั่ม 30 มล. พร้อมแนวซีลกั้นอากาศสูง และรอยบากฉีกเทง่าย</div>
+          </div>
+          <a href="Dieline_Princess_Isabelle_Inner_Serum_Sachet_9x12.svg" download class="btn-gold">ดาวน์โหลด SVG</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">5. คู่มือสเปกโรงพิมพ์ภาษาไทย (.MD)</div>
+            <div class="download-desc">เอกสารอธิบายการคำนวณความนูน 30 มล. มิติการเผื่อระยะ และชนิดวัสดุ</div>
+          </div>
+          <a href="Princess_Isabelle_Packaging_Manual_TH.md" download class="btn-gold">ดาวน์โหลดคู่มือ TH</a>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-title">6. ภาพมาสเตอร์บอร์ดพรีเซนต์ (.SVG)</div>
+            <div class="download-desc">Master Presentation Diagram แสดงโครงสร้างและภาพรวมมิติทั้งหมด</div>
+          </div>
+          <a href="Princess_Isabelle_Slide_Box_Master_Presentation.svg" download class="btn-gold">ดาวน์โหลด Master Board</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">Princess Isabelle</div>
+    <div>A ROYAL TOUCH IN EVERY DETAIL • BEAUTY WOVEN IN SILK</div>
+    <div style="margin-top: 10px; font-size: 11.5px; color: #888;">
+      © 2026 Princess Isabelle Skincare. All Packaging Blueprints and 3D Assets are Commercial Print-Factory Ready.
+    </div>
+  </footer>
+
+  <!-- Three.js Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
