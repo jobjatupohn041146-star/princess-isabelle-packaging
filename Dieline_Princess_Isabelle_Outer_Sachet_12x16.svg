@@ -32,8 +32,8 @@
 
   <!-- Header -->
   <g transform="translate(60, 65)">
-    <text class="label-title" x="0" y="0">PRINCESS ISABELLE — OUTER MASK SACHET (ซองนอก 12 × 16 CM)</text>
-    <text class="label-sub" x="0" y="20">Standard Size: 120 mm (W) × 160 mm (H) • Encloses 1 Dry Golden Silk Mask Sheet + 1 Inner Serum Pouch (90 × 120 mm, 30 ml)</text>
+    <text class="label-title" x="0" y="0">PRINCESS ISABELLE — FACIAL MASK SACHET (ซองมาส์กหน้าพร้อมเซรั่มในตัว 12 × 16 CM)</text>
+    <text class="label-sub" x="0" y="20">Size: 120 mm (W) × 160 mm (H) • แผ่นมาส์กชุบเซรั่มเข้มข้นรังไหมทองคำบรรจุพร้อมใช้ในซองเดียวกัน (Net Wt. 25g – 30ml)</text>
     <text class="label-sub" x="0" y="36">Substrate: Matte PET 12µ / AL 7µ / NY 15µ / LLDPE 80µ (Total 114µ High-Barrier Foil) • Dual Easy-Tear V-Notches (20 mm from top)</text>
   </g>
 
@@ -88,16 +88,16 @@
         <!-- Product Name -->
         <text font-family="'Playfair Display', Georgia, serif" font-size="13px" font-weight="bold" fill="#3E2055" text-anchor="middle" x="0" y="80">GOLDEN SILK FACIAL MASK</text>
         
-        <!-- Badge for Dual-Pouch / Fresh-Mix -->
+        <!-- Badge for All-in-One Pre-Soaked Mask -->
         <rect x="-70" y="94" width="140" height="24" rx="12" fill="#FFFFFF" stroke="#D4AF37" stroke-width="1"/>
-        <text font-family="'Segoe UI', sans-serif" font-size="8.5px" font-weight="bold" fill="#7B1FA2" text-anchor="middle" x="0" y="106">FRESH-MIX RITUAL • DUAL POUCH</text>
-        <text font-family="'Segoe UI', sans-serif" font-size="7px" fill="#666" text-anchor="middle" x="0" y="114">1 Dry Silk Sheet + 1 Serum Sachet 30 ml</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="8.5px" font-weight="bold" fill="#7B1FA2" text-anchor="middle" x="0" y="106">INTENSE NOURISHING FACIAL MASK</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="7px" fill="#666" text-anchor="middle" x="0" y="114">Silk Sheet Pre-Infused with 25g/30ml Serum</text>
 
         <!-- Silk Illustration Accent -->
         <path d="M -60,135 Q 0,115 60,135 Q 0,155 -60,135 Z" fill="#F3E5F5" stroke="#CE93D8" stroke-width="0.8"/>
         <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#8E24AA" text-anchor="middle" x="0" y="138">Bio-Silk Peptides • Royal Glow Formula</text>
 
-        <text font-family="'Segoe UI', sans-serif" font-size="8px" font-weight="bold" fill="#B8860B" text-anchor="middle" x="0" y="195">1 SET (30 ml e 1.01 fl. oz.)</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="8px" font-weight="bold" fill="#B8860B" text-anchor="middle" x="0" y="195">1 SHEET MASK (25 g / 30 ml e)</text>
         <text font-family="'Segoe UI', sans-serif" font-size="7px" fill="#777" text-anchor="middle" x="0" y="206">DERMATOLOGICALLY TESTED</text>
       </g>
 
@@ -119,29 +119,29 @@
       <path d="M 0,36 L 8,40 L 0,44 Z" fill="#E60039"/>
       <path d="M 240,36 L 232,40 L 240,44 Z" fill="#E60039"/>
 
-      <!-- Back Graphic Design: Instructions & Fresh-Mix Ritual Steps -->
+      <!-- Back Graphic Design: Instructions & Ritual Steps -->
       <g transform="translate(120, 25)">
-        <text font-family="'Segoe UI', sans-serif" font-size="10px" font-weight="bold" fill="#4B286D" text-anchor="middle" x="0" y="15">FRESH-MIX RITUAL (วิธีใช้ระบบผสมสด)</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="10px" font-weight="bold" fill="#4B286D" text-anchor="middle" x="0" y="15">HOW TO USE (วิธีใช้แผ่นมาส์กชุ่มเซรั่ม)</text>
         
-        <!-- Step 1: Tear outer sachet -->
+        <!-- Step 1: Cleanse Face -->
         <g transform="translate(-90, 28)">
           <rect width="36" height="36" rx="4" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1"/>
           <text font-family="'Segoe UI', sans-serif" font-size="9px" font-weight="bold" fill="#7B1FA2" text-anchor="middle" x="18" y="14">1</text>
-          <text font-family="'Segoe UI', sans-serif" font-size="6.5px" fill="#555" text-anchor="middle" x="18" y="26">ฉีกซองนอก</text>
+          <text font-family="'Segoe UI', sans-serif" font-size="6.5px" fill="#555" text-anchor="middle" x="18" y="26">ล้างหน้าสะอาด</text>
         </g>
-        <!-- Step 2: Take out serum pouch -->
+        <!-- Step 2: Tear Sachet -->
         <g transform="translate(-30, 28)">
           <rect width="36" height="36" rx="4" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1"/>
           <text font-family="'Segoe UI', sans-serif" font-size="9px" font-weight="bold" fill="#7B1FA2" text-anchor="middle" x="18" y="14">2</text>
-          <text font-family="'Segoe UI', sans-serif" font-size="6.5px" fill="#555" text-anchor="middle" x="18" y="26">นำซองในออก</text>
+          <text font-family="'Segoe UI', sans-serif" font-size="6.5px" fill="#555" text-anchor="middle" x="18" y="26">ฉีกซองมาส์ก</text>
         </g>
-        <!-- Step 3: Pour serum 30ml -->
+        <!-- Step 3: Apply Mask -->
         <g transform="translate(30, 28)">
           <rect width="36" height="36" rx="4" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1"/>
           <text font-family="'Segoe UI', sans-serif" font-size="9px" font-weight="bold" fill="#7B1FA2" text-anchor="middle" x="18" y="14">3</text>
-          <text font-family="'Segoe UI', sans-serif" font-size="6.5px" fill="#555" text-anchor="middle" x="18" y="26">เทชโลมเซรั่ม</text>
+          <text font-family="'Segoe UI', sans-serif" font-size="6.5px" fill="#555" text-anchor="middle" x="18" y="26">วางแนบผิวหน้า</text>
         </g>
-        <!-- Step 4: Apply mask 15-20 min -->
+        <!-- Step 4: Relax 15-20 min -->
         <g transform="translate(90, 28)">
           <rect width="36" height="36" rx="4" fill="#FFFFFF" stroke="#BA68C8" stroke-width="1"/>
           <text font-family="'Segoe UI', sans-serif" font-size="9px" font-weight="bold" fill="#7B1FA2" text-anchor="middle" x="18" y="14">4</text>
@@ -149,9 +149,9 @@
         </g>
 
         <!-- Detailed Text Instructions in Thai and English -->
-        <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#444" text-anchor="middle" x="0" y="80">1. ฉีกซองด้านนอก เพื่อนำแผ่นมาส์กแห้งและซองเซรั่มออกมา</text>
-        <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#444" text-anchor="middle" x="0" y="92">2. ฉีกซองเซรั่ม 30 มล. แล้วเทลงบนแผ่นมาส์กให้ชุ่มฉ่ำทั่วถึง</text>
-        <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#444" text-anchor="middle" x="0" y="104">3. วางแผ่นมาส์กบนใบหน้า ทิ้งไว้ 15-20 นาที แล้วลอกออก</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#444" text-anchor="middle" x="0" y="80">1. ทำความสะอาดผิวหน้าและซับให้แห้ง</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#444" text-anchor="middle" x="0" y="92">2. ฉีกซองนำแผ่นมาส์กชุ่มเซรั่มเข้มข้นออกมา คลี่วางแนบสนิทกับใบหน้า</text>
+        <text font-family="'Segoe UI', sans-serif" font-size="7.5px" fill="#444" text-anchor="middle" x="0" y="104">3. ทิ้งไว้ 15-20 นาที ลอกออก นวดเซรั่มที่เหลือให้ซึมสู่ผิวโดยไม่ต้องล้างออก</text>
 
         <line x1="-95" y1="116" x2="95" y2="116" stroke="#E1BEE7" stroke-width="1"/>
 
@@ -209,10 +209,10 @@
   <!-- Bottom Technical Summary -->
   <g transform="translate(100, 670)">
     <rect width="900" height="120" rx="8" fill="#FDFBF7" stroke="#E2D9C8" stroke-width="1"/>
-    <text x="20" y="24" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#4B286D">OUTER MASK SACHET (ซองนอก) MANUFACTURING SPECIFICATIONS:</text>
-    <text x="20" y="46" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• External Size: 120 × 160 mm (Folded &amp; 3-Side Sealed Foil Sachet; Top-fill opening sealed at 10 mm after inserting mask &amp; serum pouch).</text>
-    <text x="20" y="64" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Contents: 1 Folded Dry Golden Silk Sheet (100% natural silk protein mesh) + 1 Sealed Serum Pouch (90 × 120 mm, 30 ml).</text>
-    <text x="20" y="82" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Thickness Allowance: Package will expand to ~11-13 mm thickness at center bulge. 3 units stack comfortably into 38 mm drawer tray.</text>
-    <text x="20" y="100" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Finishing: 9-Color Rotogravure Printing + Matte Vanish + Kurz Metallic Gold Hot Stamping Foil on logo and border accents.</text>
+    <text x="20" y="24" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#4B286D">FACIAL MASK SACHET (ซองมาส์กหน้าพร้อมเซรั่ม) MANUFACTURING SPECIFICATIONS:</text>
+    <text x="20" y="46" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• External Size: 120 × 160 mm (Foil Sachet; Sealed on 3 sides, top-sealed at 10 mm after liquid dosing).</text>
+    <text x="20" y="64" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Contents: 1 Natural Golden Silk Sheet Mask pre-infused with 25g – 30ml concentrated peptide serum in the same sachet (All-in-One).</text>
+    <text x="20" y="82" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Thickness &amp; Clearance: Average center pillow thickness ~9.5–10.5 mm. 3 sachets stacked = ~30–31.5 mm, fitting in 33 mm deep hollow-wall tray.</text>
+    <text x="20" y="100" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#444">• Finishing: 9-Color Rotogravure Printing + Soft Matte Vanish + Kurz Metallic Gold Hot Stamping Foil on brand emblem &amp; borders.</text>
   </g>
 </svg>

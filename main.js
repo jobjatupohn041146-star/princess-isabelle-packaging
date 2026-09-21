@@ -609,13 +609,13 @@ window.switchDieline = function(dielineName, tabBtn) {
       break;
     case 'outer_sachet':
       filePath = 'Dieline_Princess_Isabelle_Outer_Sachet_12x16.svg';
-      title = '3. ซองนอก 12 × 16 cm (Outer Sachet Dieline)';
-      dim = '120 × 160 mm (บรรจุแผ่นมาส์กแห้ง + ซองเซรั่มใน 30ml)';
+      title = '3. ซองมาส์กหน้าพร้อมเซรั่มในตัว 12 × 16 cm (Facial Mask Sachet Dieline)';
+      dim = '120 × 160 mm (แผ่นมาส์กชุ่มเซรั่มเข้มข้น 25g - 30ml บรรจุในซองเดียวกัน)';
       break;
     case 'inner_serum':
       filePath = 'Dieline_Princess_Isabelle_Inner_Serum_Sachet_9x12.svg';
-      title = '4. ซองเซรั่มใน 9 × 12 cm (Inner Serum Pouch Dieline)';
-      dim = '90 × 120 mm (ความจุ 30 ml • มุมเท 45°)';
+      title = '4. [ทางเลือกเสริม] ซองเซรั่มแยก 9 × 12 cm (Optional Separate Serum Pouch)';
+      dim = '90 × 120 mm (ความจุ 30 ml • สำหรับกรณีผลิตแบบ Fresh-Mix แยกซอง)';
       break;
   }
 
