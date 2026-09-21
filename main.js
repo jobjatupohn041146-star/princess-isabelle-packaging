@@ -32,7 +32,8 @@ function init3DStudio() {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
+  renderer.toneMappingExposure = 1.18;
+  renderer.outputEncoding = THREE.sRGBEncoding;
   container.appendChild(renderer.domElement);
 
   controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -64,25 +65,105 @@ function init3DStudio() {
   window.addEventListener('resize', onWindowResize);
 }
 
+const textureLoader = new THREE.TextureLoader();
+
 function setupLighting() {
-  const ambient = new THREE.AmbientLight(0xFFFFFF, 1.35);
+  // Studio Environment Map for Photorealistic PBR Reflections
+  try {
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
+
+    const envCanvas = document.createElement('canvas');
+    envCanvas.width = 512;
+    envCanvas.height = 256;
+    const envCtx = envCanvas.getContext('2d');
+
+    // Studio softbox lighting gradient
+    const envGrad = envCtx.createLinearGradient(0, 0, 0, 256);
+    envGrad.addColorStop(0, '#FFFFFF');
+    envGrad.addColorStop(0.25, '#FAF4FD');
+    envGrad.addColorStop(0.65, '#DFCDEE');
+    envGrad.addColorStop(1, '#9C88B4');
+    envCtx.fillStyle = envGrad;
+    envCtx.fillRect(0, 0, 512, 256);
+
+    // Softbox Light Discs for gold gleam
+    envCtx.fillStyle = '#FFFFFF';
+    envCtx.beginPath();
+    envCtx.ellipse(130, 70, 90, 45, 0, 0, Math.PI * 2);
+    envCtx.fill();
+
+    envCtx.beginPath();
+    envCtx.ellipse(380, 80, 110, 50, 0, 0, Math.PI * 2);
+    envCtx.fill();
+
+    const envTexture = new THREE.CanvasTexture(envCanvas);
+    const envMap = pmremGenerator.fromEquirectangular(envTexture).texture;
+    scene.environment = envMap;
+    pmremGenerator.dispose();
+  } catch (e) {
+    console.warn('Environment map setup failed, relying on directional lights', e);
+  }
+
+  const ambient = new THREE.AmbientLight(0xFFFFFF, 0.95);
   scene.add(ambient);
 
-  const mainLight = new THREE.DirectionalLight(0xFFF9EE, 1.7);
-  mainLight.position.set(160, 260, 160);
+  // Key light: Warm studio key light
+  const mainLight = new THREE.DirectionalLight(0xFFFBF4, 1.45);
+  mainLight.position.set(150, 260, 160);
   mainLight.castShadow = true;
   mainLight.shadow.mapSize.width = 2048;
   mainLight.shadow.mapSize.height = 2048;
+  mainLight.shadow.camera.near = 50;
+  mainLight.shadow.camera.far = 650;
+  mainLight.shadow.camera.left = -180;
+  mainLight.shadow.camera.right = 180;
+  mainLight.shadow.camera.top = 180;
+  mainLight.shadow.camera.bottom = -180;
   mainLight.shadow.bias = -0.0001;
   scene.add(mainLight);
 
-  const fillLight = new THREE.DirectionalLight(0xE9DCF2, 1.15);
-  fillLight.position.set(-160, 140, -120);
+  // Fill light: Soft lilac tinted fill
+  const fillLight = new THREE.DirectionalLight(0xE9DCF2, 0.85);
+  fillLight.position.set(-160, 120, -100);
   scene.add(fillLight);
 
-  const goldRim = new THREE.DirectionalLight(0xFFE082, 1.4);
+  // Gold Rim light: Accentuates metallic edges
+  const goldRim = new THREE.DirectionalLight(0xFFE082, 1.3);
   goldRim.position.set(0, 180, -220);
   scene.add(goldRim);
+
+  // Bottom bounce light
+  const bounceLight = new THREE.DirectionalLight(0xD8C3E5, 0.4);
+  bounceLight.position.set(0, -100, 50);
+  scene.add(bounceLight);
+}
+
+// Robust Texture Loader with Anisotropy and Fallback
+function loadRealisticTexture(url, fallbackFn, rotation = Math.PI, repeatX = 1, repeatY = 1) {
+  const tex = textureLoader.load(
+    url,
+    (loaded) => {
+      loaded.encoding = THREE.sRGBEncoding;
+      if (renderer) {
+        loaded.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      }
+      loaded.generateMipmaps = true;
+      loaded.minFilter = THREE.LinearMipmapLinearFilter;
+      loaded.magFilter = THREE.LinearFilter;
+      if (renderer && scene && camera) {
+        renderer.render(scene, camera);
+      }
+    },
+    undefined,
+    (err) => {
+      console.warn('Could not load ' + url + ', using procedural canvas texture.', err);
+    }
+  );
+  tex.center.set(0.5, 0.5);
+  tex.rotation = rotation;
+  tex.repeat.set(repeatX, repeatY);
+  return tex;
 }
 
 // Procedural Art Canvas for Top Box Wrap (100% Exact Match)
@@ -269,80 +350,120 @@ function createSerumTexture() {
 
 // Build Packaging Models: Short-Side Slide & 10 mm Hollow-Wall Frame
 function buildPackagingModels() {
-  // Dimensions:
-  // Outer Sleeve: 153 mm (W) × 193 mm (L) × 37 mm (H)
+  // Finished Sleeve Dimensions: 153 mm (W) × 193 mm (L) × 37 mm (H)
   // X = Width (153 mm), Z = Length (193 mm), Y = Height (37 mm)
-  // Short side is along X (153 mm), Slide direction is along Z (193 mm)!
+  // Short side is along X (153 mm), Slide pull is along Z (193 mm)
   const sleeveW = 153;
   const sleeveL = 193;
   const sleeveH = 37;
 
   outerSleeve = new THREE.Group();
-  const topFaceTex = createTopFaceTexture();
 
-  const luxuryMat = new THREE.MeshStandardMaterial({
-    color: 0xFAF2FE,
-    roughness: 0.35,
-    metalness: 0.12
+  // Load Photorealistic Textures
+  const topFaceTex = loadRealisticTexture('tex_box_front.jpg', createTopFaceTexture, Math.PI);
+  const bottomFaceTex = loadRealisticTexture('tex_box_back.jpg', createTopFaceTexture, 0);
+  const sideFaceTex = loadRealisticTexture('tex_box_side.jpg', createTopFaceTexture, Math.PI / 2);
+
+  // Luxury Satin Coated Paperboard Materials
+  const luxuryLilacMat = new THREE.MeshStandardMaterial({
+    color: 0xF3E6F8,
+    roughness: 0.38,
+    metalness: 0.10,
+    envMapIntensity: 0.8
   });
 
+  const innerSleeveMat = new THREE.MeshStandardMaterial({
+    color: 0xEEE1F4,
+    roughness: 0.45,
+    metalness: 0.05
+  });
+
+  // Top Face Material with Gold Foil Embellishment Sheen
   const topFaceMat = new THREE.MeshStandardMaterial({
     map: topFaceTex,
-    roughness: 0.28,
-    metalness: 0.18
+    roughness: 0.30,
+    metalness: 0.20,
+    envMapIntensity: 1.1
   });
 
-  // Sleeve Top Face
+  // Bottom Face Material
+  const bottomFaceMat = new THREE.MeshStandardMaterial({
+    map: bottomFaceTex,
+    roughness: 0.34,
+    metalness: 0.16,
+    envMapIntensity: 0.9
+  });
+
+  // Side Face Material
+  const sideFaceMat = new THREE.MeshStandardMaterial({
+    map: sideFaceTex,
+    roughness: 0.32,
+    metalness: 0.18,
+    envMapIntensity: 1.0
+  });
+
+  // Sleeve Top Face Mesh
   const topGeo = new THREE.BoxGeometry(sleeveW, 2, sleeveL);
   const topFaceMesh = new THREE.Mesh(topGeo, [
-    luxuryMat, luxuryMat, topFaceMat, luxuryMat, luxuryMat, luxuryMat
+    luxuryLilacMat, luxuryLilacMat, topFaceMat, innerSleeveMat, luxuryLilacMat, luxuryLilacMat
   ]);
   topFaceMesh.position.y = sleeveH / 2;
   topFaceMesh.castShadow = true;
   outerSleeve.add(topFaceMesh);
 
-  // Sleeve Bottom Face
+  // Sleeve Bottom Face Mesh
   const bottomGeo = new THREE.BoxGeometry(sleeveW, 2, sleeveL);
-  const bottomFaceMesh = new THREE.Mesh(bottomGeo, luxuryMat);
+  const bottomFaceMesh = new THREE.Mesh(bottomGeo, [
+    luxuryLilacMat, luxuryLilacMat, innerSleeveMat, bottomFaceMat, luxuryLilacMat, luxuryLilacMat
+  ]);
   bottomFaceMesh.position.y = -sleeveH / 2;
   bottomFaceMesh.receiveShadow = true;
   outerSleeve.add(bottomFaceMesh);
 
   // Sleeve Left Wall (X = -sleeveW/2)
   const leftWallGeo = new THREE.BoxGeometry(2, sleeveH, sleeveL);
-  const leftWallMesh = new THREE.Mesh(leftWallGeo, luxuryMat);
+  const leftWallMesh = new THREE.Mesh(leftWallGeo, [
+    innerSleeveMat, sideFaceMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat
+  ]);
   leftWallMesh.position.x = -sleeveW / 2;
   leftWallMesh.castShadow = true;
   outerSleeve.add(leftWallMesh);
 
   // Sleeve Right Wall (X = sleeveW/2)
   const rightWallGeo = new THREE.BoxGeometry(2, sleeveH, sleeveL);
-  const rightWallMesh = new THREE.Mesh(rightWallGeo, luxuryMat);
+  const rightWallMesh = new THREE.Mesh(rightWallGeo, [
+    sideFaceMat, innerSleeveMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat
+  ]);
   rightWallMesh.position.x = sleeveW / 2;
   rightWallMesh.castShadow = true;
   outerSleeve.add(rightWallMesh);
 
   // Sleeve Back Stop (Z = -sleeveL/2) - Closed bottom/rear of sleeve tube
   const backGeo = new THREE.BoxGeometry(sleeveW, sleeveH, 2);
-  const backMesh = new THREE.Mesh(backGeo, luxuryMat);
+  const backMesh = new THREE.Mesh(backGeo, [
+    luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, innerSleeveMat, luxuryLilacMat
+  ]);
   backMesh.position.z = -sleeveL / 2;
   outerSleeve.add(backMesh);
 
-  // The Short Side opening is at Z = +sleeveL/2 (Front/Top opening)!
+  // Short Side opening is at Z = +sleeveL/2 (Front/Top opening)
   scene.add(outerSleeve);
 
   // Inner Drawer Tray (150 W × 190 L × 34 H) with 10 mm Hollow-Wall Frame
   innerDrawer = new THREE.Group();
+
   const trayMat = new THREE.MeshStandardMaterial({
-    color: 0xF3E9F8,
-    roughness: 0.4,
-    metalness: 0.05
+    color: 0xF8EFFB,
+    roughness: 0.40,
+    metalness: 0.10,
+    envMapIntensity: 0.85
   });
 
   const rimMat = new THREE.MeshStandardMaterial({
-    color: 0xE8D7EF,
-    roughness: 0.35,
-    metalness: 0.15
+    color: 0xF2E4F6,
+    roughness: 0.32,
+    metalness: 0.18,
+    envMapIntensity: 1.0
   });
 
   // Tray Base Panel: 150 × 190 mm
@@ -353,32 +474,32 @@ function buildPackagingModels() {
   innerDrawer.add(dBaseMesh);
 
   // 10 mm Hollow-Wall Raised Borders around 4 sides:
-  // Cavity size is 130 mm (W) × 170 mm (L), Net depth 33 mm
+  // Cavity size is 130 mm (W) × 170 mm (L), Net depth 33 mm (> 3 cm)
   const borderH = 33;
   const borderThick = 10;
 
-  // Top Short Border (Z = +190/2 - 5 = +90)
+  // Front Short Border (Z = +190/2 - 5 = +90 mm)
   const topBorderGeo = new THREE.BoxGeometry(150, borderH, borderThick);
   const topBorderMesh = new THREE.Mesh(topBorderGeo, rimMat);
   topBorderMesh.position.set(0, -sleeveH/2 + borderH/2 + 2.5, 190/2 - borderThick/2);
   topBorderMesh.castShadow = true;
   innerDrawer.add(topBorderMesh);
 
-  // Bottom Short Border (Z = -190/2 + 5 = -90)
+  // Rear Short Border (Z = -190/2 + 5 = -90 mm)
   const botBorderGeo = new THREE.BoxGeometry(150, borderH, borderThick);
   const botBorderMesh = new THREE.Mesh(botBorderGeo, rimMat);
   botBorderMesh.position.set(0, -sleeveH/2 + borderH/2 + 2.5, -190/2 + borderThick/2);
   botBorderMesh.castShadow = true;
   innerDrawer.add(botBorderMesh);
 
-  // Left Long Border (X = -150/2 + 5 = -70, L = 170)
+  // Left Long Border (X = -150/2 + 5 = -70 mm, L = 170 mm)
   const leftBorderGeo = new THREE.BoxGeometry(borderThick, borderH, 170);
   const leftBorderMesh = new THREE.Mesh(leftBorderGeo, rimMat);
   leftBorderMesh.position.set(-150/2 + borderThick/2, -sleeveH/2 + borderH/2 + 2.5, 0);
   leftBorderMesh.castShadow = true;
   innerDrawer.add(leftBorderMesh);
 
-  // Right Long Border (X = +150/2 - 5 = +70, L = 170)
+  // Right Long Border (X = +150/2 - 5 = +70 mm, L = 170 mm)
   const rightBorderGeo = new THREE.BoxGeometry(borderThick, borderH, 170);
   const rightBorderMesh = new THREE.Mesh(rightBorderGeo, rimMat);
   rightBorderMesh.position.set(150/2 - borderThick/2, -sleeveH/2 + borderH/2 + 2.5, 0);
@@ -392,27 +513,50 @@ function buildPackagingModels() {
     new THREE.Vector3(7, -sleeveH/2 + 18, 190/2 + 35),
     new THREE.Vector3(7, -sleeveH/2 + 18, 190/2)
   );
-  const ribbonGeo = new THREE.TubeGeometry(ribbonCurve, 30, 2.5, 12, false);
+  const ribbonGeo = new THREE.TubeGeometry(ribbonCurve, 32, 2.6, 16, false);
   const ribbonMat = new THREE.MeshStandardMaterial({
-    color: 0xD4AF37,
-    roughness: 0.3,
-    metalness: 0.8
+    color: 0xE6C364,
+    roughness: 0.22,
+    metalness: 0.88,
+    envMapIntensity: 1.5
   });
   ribbonMesh = new THREE.Mesh(ribbonGeo, ribbonMat);
   ribbonMesh.castShadow = true;
   innerDrawer.add(ribbonMesh);
 
-  // 3 Stacked Mask Sachets inside the 130 × 170 mm Cavity
-  const sachetTex = createSachetTexture();
-  const sachetMat = new THREE.MeshStandardMaterial({ map: sachetTex, roughness: 0.35, metalness: 0.25 });
-  const sachetSideMat = new THREE.MeshStandardMaterial({ color: 0xD4AF37, roughness: 0.3, metalness: 0.8 });
+  // 3 Stacked Pre-Soaked Mask Sachets inside the 130 × 170 mm Cavity
+  const sachetTex = loadRealisticTexture('tex_sachet_front.jpg', createSachetTexture, Math.PI);
+
+  // Photorealistic Metallic Gold Foil Material
+  const sachetMat = new THREE.MeshStandardMaterial({
+    map: sachetTex,
+    roughness: 0.20,
+    metalness: 0.88,
+    envMapIntensity: 1.6
+  });
+
+  const sachetEdgeMat = new THREE.MeshStandardMaterial({
+    color: 0xD4AF37,
+    roughness: 0.22,
+    metalness: 0.92,
+    envMapIntensity: 1.6
+  });
+
+  const sachetBackMat = new THREE.MeshStandardMaterial({
+    color: 0xD4AF37,
+    roughness: 0.25,
+    metalness: 0.85,
+    envMapIntensity: 1.4
+  });
+
   const sachetGeo = new THREE.BoxGeometry(120, 10, 160);
 
   for (let i = 0; i < 3; i++) {
     const sachet = new THREE.Mesh(sachetGeo, [
-      sachetSideMat, sachetSideMat, sachetMat, sachetSideMat, sachetSideMat, sachetSideMat
+      sachetEdgeMat, sachetEdgeMat, sachetMat, sachetBackMat, sachetEdgeMat, sachetEdgeMat
     ]);
-    sachet.position.set(0, -sleeveH/2 + 7.5 + (i * 10.2), 0);
+    const staggerZ = (i - 1) * 0.4;
+    sachet.position.set(0, -sleeveH/2 + 7.5 + (i * 10.2), staggerZ);
     sachet.castShadow = true;
     sachet.receiveShadow = true;
     innerDrawer.add(sachet);
@@ -423,9 +567,19 @@ function buildPackagingModels() {
 }
 
 function buildIsolatedProducts() {
-  const sachetTex = createSachetTexture();
-  const sMat = new THREE.MeshStandardMaterial({ map: sachetTex, roughness: 0.35, metalness: 0.25 });
-  const goldBorderMat = new THREE.MeshStandardMaterial({ color: 0xD4AF37, roughness: 0.28, metalness: 0.8 });
+  const sachetTex = loadRealisticTexture('tex_sachet_front.jpg', createSachetTexture, Math.PI);
+  const sMat = new THREE.MeshStandardMaterial({
+    map: sachetTex,
+    roughness: 0.20,
+    metalness: 0.88,
+    envMapIntensity: 1.6
+  });
+  const goldBorderMat = new THREE.MeshStandardMaterial({
+    color: 0xD4AF37,
+    roughness: 0.22,
+    metalness: 0.92,
+    envMapIntensity: 1.6
+  });
   const sGeo = new THREE.BoxGeometry(120, 11, 160);
 
   isolatedSachet = new THREE.Mesh(sGeo, [
