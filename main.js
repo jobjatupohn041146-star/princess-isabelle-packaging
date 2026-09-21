@@ -420,7 +420,7 @@ function buildPackagingModels() {
   bottomFaceMesh.receiveShadow = true;
   outerSleeve.add(bottomFaceMesh);
 
-  // Sleeve Left Wall (X = -sleeveW/2)
+  // Sleeve Left Closed Wall (X = -sleeveW/2)
   const leftWallGeo = new THREE.BoxGeometry(2, sleeveH, sleeveL);
   const leftWallMesh = new THREE.Mesh(leftWallGeo, [
     innerSleeveMat, sideFaceMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat
@@ -429,24 +429,25 @@ function buildPackagingModels() {
   leftWallMesh.castShadow = true;
   outerSleeve.add(leftWallMesh);
 
-  // Sleeve Right Wall (X = sleeveW/2)
-  const rightWallGeo = new THREE.BoxGeometry(2, sleeveH, sleeveL);
-  const rightWallMesh = new THREE.Mesh(rightWallGeo, [
-    sideFaceMat, innerSleeveMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat
+  // Top Short Side Closed Wall (Z = +sleeveL/2)
+  const topShortGeo = new THREE.BoxGeometry(sleeveW, sleeveH, 2);
+  const topShortMesh = new THREE.Mesh(topShortGeo, [
+    luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, sideFaceMat, innerSleeveMat
   ]);
-  rightWallMesh.position.x = sleeveW / 2;
-  rightWallMesh.castShadow = true;
-  outerSleeve.add(rightWallMesh);
+  topShortMesh.position.z = sleeveL / 2;
+  topShortMesh.castShadow = true;
+  outerSleeve.add(topShortMesh);
 
-  // Sleeve Back Stop (Z = -sleeveL/2) - Closed bottom/rear of sleeve tube
-  const backGeo = new THREE.BoxGeometry(sleeveW, sleeveH, 2);
-  const backMesh = new THREE.Mesh(backGeo, [
-    luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, innerSleeveMat, luxuryLilacMat
+  // Bottom Short Side Closed Wall (Z = -sleeveL/2)
+  const botShortGeo = new THREE.BoxGeometry(sleeveW, sleeveH, 2);
+  const botShortMesh = new THREE.Mesh(botShortGeo, [
+    luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, luxuryLilacMat, innerSleeveMat, sideFaceMat
   ]);
-  backMesh.position.z = -sleeveL / 2;
-  outerSleeve.add(backMesh);
+  botShortMesh.position.z = -sleeveL / 2;
+  botShortMesh.castShadow = true;
+  outerSleeve.add(botShortMesh);
 
-  // Short Side opening is at Z = +sleeveL/2 (Front/Top opening)
+  // Right Side is OPEN at X = +sleeveW/2 (Horizontal Slide Opening)
   scene.add(outerSleeve);
 
   // Inner Drawer Tray (150 W × 190 L × 34 H) with 10 mm Hollow-Wall Frame
@@ -506,19 +507,20 @@ function buildPackagingModels() {
   rightBorderMesh.castShadow = true;
   innerDrawer.add(rightBorderMesh);
 
-  // Gold Satin Ribbon Pull Tab (15 mm wide) on Short Edge (Z = +95 mm)
+  // Royal Violet / Gold Satin Ribbon Pull Tab (16 mm wide) on Right Edge (X = +150/2 mm)
+  // Loops out horizontally to the right (+X direction), matching Item 8 of the master poster
   const ribbonCurve = new THREE.CubicBezierCurve3(
-    new THREE.Vector3(-7, -sleeveH/2 + 18, 190/2),
-    new THREE.Vector3(-7, -sleeveH/2 + 18, 190/2 + 35),
-    new THREE.Vector3(7, -sleeveH/2 + 18, 190/2 + 35),
-    new THREE.Vector3(7, -sleeveH/2 + 18, 190/2)
+    new THREE.Vector3(150/2, -sleeveH/2 + 18, -8),
+    new THREE.Vector3(150/2 + 28, -sleeveH/2 + 18, -8),
+    new THREE.Vector3(150/2 + 28, -sleeveH/2 + 18, 8),
+    new THREE.Vector3(150/2, -sleeveH/2 + 18, 8)
   );
   const ribbonGeo = new THREE.TubeGeometry(ribbonCurve, 32, 2.6, 16, false);
   const ribbonMat = new THREE.MeshStandardMaterial({
-    color: 0xE6C364,
-    roughness: 0.22,
-    metalness: 0.88,
-    envMapIntensity: 1.5
+    color: 0x8E44AD, // Royal Violet silk ribbon as in Item 8
+    roughness: 0.32,
+    metalness: 0.35,
+    envMapIntensity: 1.4
   });
   ribbonMesh = new THREE.Mesh(ribbonGeo, ribbonMat);
   ribbonMesh.castShadow = true;
@@ -602,16 +604,16 @@ function buildIsolatedProducts() {
   scene.add(isolatedSerumPouch);
 }
 
-// Update Drawer Slide: Slides along Z-AXIS (Short Side / Top-Pull Slide)
+// Update Drawer Slide: Slides HORIZONTALLY along +X axis (out to the right)
 function updateDrawerSlide(percent) {
   slidePercent = percent;
-  // At 0%, innerDrawer is fully inside (z = 0)
-  // At 100%, innerDrawer is pulled out along +Z axis by 145 mm
-  const maxSlideZ = 145;
-  const slideZ = (percent / 100) * maxSlideZ;
+  // At 0%, innerDrawer is fully inside (x = 0)
+  // At 100%, innerDrawer is pulled out along +X axis by 135 mm (Horizontal Slide)
+  const maxSlideX = 135;
+  const slideX = (percent / 100) * maxSlideX;
   if (innerDrawer && activeMode !== 'exploded') {
-    innerDrawer.position.z = slideZ;
-    innerDrawer.position.x = 0;
+    innerDrawer.position.x = slideX;
+    innerDrawer.position.z = 0;
   }
 }
 
@@ -634,11 +636,11 @@ window.setViewMode = function(mode) {
 
   switch (mode) {
     case 'hero':
-      updateDrawerSlide(65);
-      if (slider) slider.value = 65;
-      if (slideVal) slideVal.textContent = '65%';
-      targetCamPos.set(180, 240, 240);
-      targetLookAt.set(0, 0, 30);
+      updateDrawerSlide(60);
+      if (slider) slider.value = 60;
+      if (slideVal) slideVal.textContent = '60%';
+      targetCamPos.set(160, 230, 220);
+      targetLookAt.set(35, 0, 0);
       resetExplodedTransforms();
       break;
 
@@ -646,30 +648,30 @@ window.setViewMode = function(mode) {
       updateDrawerSlide(100);
       if (slider) slider.value = 100;
       if (slideVal) slideVal.textContent = '100%';
-      targetCamPos.set(0, 310, 150);
-      targetLookAt.set(0, 0, 80);
+      targetCamPos.set(90, 280, 80);
+      targetLookAt.set(80, 0, 0);
       resetExplodedTransforms();
       break;
 
     case 'exploded':
-      // Exploded along Z axis and Y elevation
-      outerSleeve.position.set(0, 0, -80);
-      innerDrawer.position.set(0, 0, 90);
+      // Exploded along horizontal X axis and Y elevation (sleeveH = 37 literal, not in scope here)
+      outerSleeve.position.set(-85, 0, 0);
+      innerDrawer.position.set(85, 0, 0);
       if (sachetStack.length === 3) {
-        sachetStack[0].position.set(0, 0, 0);
-        sachetStack[1].position.set(0, 30, 0);
-        sachetStack[2].position.set(0, 60, 0);
+        sachetStack[0].position.set(0, -37/2 + 7.5, 0);
+        sachetStack[1].position.set(0, -37/2 + 32, 0);
+        sachetStack[2].position.set(0, -37/2 + 58, 0);
       }
-      targetCamPos.set(220, 280, 280);
-      targetLookAt.set(0, 30, 20);
+      targetCamPos.set(150, 270, 260);
+      targetLookAt.set(0, 25, 0);
       break;
 
     case 'turntable':
-      updateDrawerSlide(75);
-      if (slider) slider.value = 75;
-      if (slideVal) slideVal.textContent = '75%';
-      targetCamPos.set(190, 220, 260);
-      targetLookAt.set(0, 0, 30);
+      updateDrawerSlide(65);
+      if (slider) slider.value = 65;
+      if (slideVal) slideVal.textContent = '65%';
+      targetCamPos.set(180, 220, 240);
+      targetLookAt.set(30, 0, 0);
       resetExplodedTransforms();
       break;
 
@@ -694,9 +696,8 @@ window.setViewMode = function(mode) {
 function resetExplodedTransforms() {
   outerSleeve.position.set(0, 0, 0);
   if (sachetStack.length === 3) {
-    const sleeveH = 37;
     for (let i = 0; i < 3; i++) {
-      sachetStack[i].position.set(0, -sleeveH/2 + 7.5 + (i * 10.2), 0);
+      sachetStack[i].position.set(0, -37/2 + 7.5 + (i * 10.2), 0);
     }
   }
   updateDrawerSlide(slidePercent);
@@ -753,7 +754,7 @@ window.switchDieline = function(dielineName, tabBtn) {
   switch (dielineName) {
     case 'sleeve':
       filePath = 'Dieline_Princess_Isabelle_Slide_Sleeve.svg';
-      title = '1. ปลอกสวมสไลด์ด้านสั้น (Short-Side Sleeve Dieline)';
+      title = '1. ปลอกสวม — สไลด์ออกด้านข้าง (Side-Slide Sleeve Dieline)';
       dim = '153 × 193 × 37 mm (สไลด์ออกด้านสั้น 153 mm)';
       break;
     case 'drawer':
